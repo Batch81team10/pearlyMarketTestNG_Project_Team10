@@ -19,6 +19,7 @@ public class US003_TC0002 {
     @Test
     public void testCase0002() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
+
         ReusableMethods.prMrktlogIn();
         Thread.sleep(2000);
         WebElement myAccount = pearlyMarketPage.myAccountYazisi;
@@ -29,13 +30,13 @@ public class US003_TC0002 {
         pearlyMarketPage.myAccount.click();
         Thread.sleep(1000);
         pearlyMarketPage.s8sutunOrder.click();
-        JavascriptExecutor jse1 = (JavascriptExecutor) Driver.getDriver();
+        //JavascriptExecutor jse1 = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].scrollIntoView(true);", pearlyMarketPage.s8goToShop);
         Thread.sleep(1000);
         pearlyMarketPage.s8goToShop.click();
         Thread.sleep(2000);
         List<WebElement> urunListesi = pearlyMarketPage.s8shopList;
-        System.out.println("urunListesi = " + urunListesi);
+        //System.out.println("urunListesi = " + urunListesi);
 
         int count = 0;
         int index = 0;
@@ -43,7 +44,7 @@ public class US003_TC0002 {
         for (int i = 0; i <= urunListesi.size(); i++) {
             index = i + 1;
             WebElement tiklanacakURun = Driver.getDriver().findElement(By.xpath("(//*[@class='product-media'])[" + index + "]"));
-            JavascriptExecutor jse2 = (JavascriptExecutor) Driver.getDriver();
+            //JavascriptExecutor jse2 = (JavascriptExecutor) Driver.getDriver();
             jse.executeScript("arguments[0].scrollIntoView(true);", tiklanacakURun);
             Actions actions = new Actions(Driver.getDriver());
             actions.moveToElement(tiklanacakURun).perform();
@@ -58,6 +59,7 @@ public class US003_TC0002 {
             }
         }
         Assert.assertEquals(pearlyMarketPage.s8cartCount.getText(), "5");
+
         Driver.closeDriver();
     }
 }

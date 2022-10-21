@@ -1,5 +1,6 @@
 package tests.US_003;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,17 +15,19 @@ public class US003_TC0005 extends US003_TC0002{
     S8PearlyMarketPage pearlyMarketPage = new S8PearlyMarketPage();
     Actions actions = new Actions(Driver.getDriver());
 
-    @Test(dependsOnMethods = "testCase0002")
+    @Test//(dependsOnMethods = "testCase0002")
     public void testCase0005() throws InterruptedException {
+
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         Thread.sleep(1000);
         ReusableMethods.prMrktlogIn();
         Thread.sleep(1000);
-        WebElement signOut = pearlyMarketPage.s8signOut;
-        ReusableMethods.waitForVisibility(signOut, 5);
-        ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 4);
+        ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
         pearlyMarketPage.s8cart.click();
+        //ReusableMethods.waitForClickablility(cart, 4);
+
         pearlyMarketPage.s8checkOut.click();
+        //pearlyMarketPage.s8checkOut.click();
         pearlyMarketPage.s8firsName.sendKeys("can");
         actions.sendKeys(Keys.TAB)
                 .sendKeys("caner")

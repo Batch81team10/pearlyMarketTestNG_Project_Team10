@@ -82,5 +82,21 @@ public class S8PearlyMarketPage {
     @FindBy(xpath = "//*[text()='Store Manager']")
     public WebElement storeManager;
 
+    @FindBy(xpath = "//*[text()='Store Manager']")
+    public WebElement logout;
+
+    @FindBy(xpath = "//*[text()='Store Manager']")
+    public WebElement sepettekiIlkUrunFiyatYazisi;
+
+    @FindBy(xpath = "(//*[@class='input-text qty text'])[1]")
+    public WebElement sepettekiIlkUrunAdetYazisi;
+
+    @FindBy(xpath = "(//*[@class='input-text qty text'])[1]")
+    public WebElement sepettekiIlkUrunToplamFiyatYazisi;
+
+
+    @FindBy(xpath = "//*[text()='View cart']")
+    public WebElement viewCart;
+
 
 }
