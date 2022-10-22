@@ -11,20 +11,19 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class US003_TC0005 extends US003_TC0002{
+public class US003_TC0005 {
     S8PearlyMarketPage pearlyMarketPage = new S8PearlyMarketPage();
     Actions actions = new Actions(Driver.getDriver());
 
-    @Test//(dependsOnMethods = "testCase0002")
+    @Test
     public void testCase0005() throws InterruptedException {
 
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         Thread.sleep(1000);
         ReusableMethods.prMrktlogIn();
-        Thread.sleep(1000);
+        ReusableMethods.besUrunEkle();
         ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
         pearlyMarketPage.s8cart.click();
-        //ReusableMethods.waitForClickablility(cart, 4);
 
         pearlyMarketPage.s8checkOut.click();
         //pearlyMarketPage.s8checkOut.click();

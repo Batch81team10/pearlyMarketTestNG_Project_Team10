@@ -1,35 +1,37 @@
-package tests.US_003;
+package tests.US_004;
 
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.S8PearlyMarketPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class US003_TC0003 {
+public class US004_TC0006 {
     S8PearlyMarketPage pearlyMarketPage = new S8PearlyMarketPage();
 
-    @Test
-    public void testCase0003() throws InterruptedException {
-        Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-        ReusableMethods.prMrktlogIn();
-        ReusableMethods.besUrunEkle();
-        ReusableMethods.waitForVisibility(pearlyMarketPage.s8signOut, 5);
-        pearlyMarketPage.s8cart.click();
-        pearlyMarketPage.s8checkOut.click();
-        Assert.assertTrue(pearlyMarketPage.s8checkOutYazisi.isDisplayed());
 
+    @Test
+    public void TC0006() throws InterruptedException {
+
+        Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         Thread.sleep(1000);
-        ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
+        ReusableMethods.prMrktlogIn();
+        //ReusableMethods.besUrunEkle();
+        Thread.sleep(1000);
         pearlyMarketPage.s8cart.click();
-        pearlyMarketPage.viewCart.click();
+        ReusableMethods.waitFor(1);
+        WebElement viewCart = pearlyMarketPage.viewCart;
+        ReusableMethods.click(viewCart);
+        Thread.sleep(3000);
         WebElement clearCart = pearlyMarketPage.clearCart;
         ReusableMethods.scrollIntoView(clearCart);
         Thread.sleep(1000);
         ReusableMethods.waitForClickablility(clearCart, 5);
         ReusableMethods.click(clearCart);
+        ReusableMethods.waitFor(1);
         Driver.closeDriver();
+        ReusableMethods.waitFor(1);
+
     }
 }

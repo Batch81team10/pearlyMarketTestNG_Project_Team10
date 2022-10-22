@@ -85,18 +85,86 @@ public class S8PearlyMarketPage {
     @FindBy(xpath = "//*[text()='Store Manager']")
     public WebElement logout;
 
-    @FindBy(xpath = "//*[text()='Store Manager']")
+    @FindBy(xpath = "(//*[@class='product-price'])[2]")
     public WebElement sepettekiIlkUrunFiyatYazisi;
 
-    @FindBy(xpath = "(//*[@class='input-text qty text'])[1]")
+    @FindBy(xpath = "(//*[@class='product-quantity'])[2]")
     public WebElement sepettekiIlkUrunAdetYazisi;
 
-    @FindBy(xpath = "(//*[@class='input-text qty text'])[1]")
+    @FindBy(xpath = "(//*[@class='product-subtotal'])[2]")
     public WebElement sepettekiIlkUrunToplamFiyatYazisi;
-
 
     @FindBy(xpath = "//*[text()='View cart']")
     public WebElement viewCart;
 
+    @FindBy(xpath = "(//*[text()='Home'])[1]")
+    public WebElement home;
+
+    @FindBy(xpath = "//*[@class='btn btn-rounded btn-outline btn-default btn-border-thin mb-4 ml-2 mr-2 clear-cart-button']")
+    public WebElement clearCart;
+
+    @FindBy(xpath = "(//*[@class='quantity-plus w-icon-plus'])[1]")
+    public WebElement urunArtir;
+
+    @FindBy(xpath = "(//*[@class='quantity-minus w-icon-minus'])[1]")
+    public WebElement urunAzalt;
+
+    @FindBy(xpath = "//tbody//tr//td[4]")
+    public List<WebElement> miktarList;
+
+
+    @FindBy(xpath = "//*[@class='product-quantity']")
+    public List<WebElement> artirList;
+
+    @FindBy(xpath = "//*[@value='Update cart']")
+    public WebElement updateCart;
+
+    @FindBy(xpath = "//*[@class='woocommerce-notices-wrapper']")
+    public WebElement updatedYazisi;
+
+    @FindBy(xpath = "//*[@name='apply_coupon']")
+    public WebElement coupon;
+
+    @FindBy(xpath = "//*[@name='apply_coupon']")
+    public WebElement shoping;
+
+    @FindBy(xpath = "(//*[@class='select2-selection__rendered'])[1]")
+    public WebElement shippingBilgisi1;
+
+    @FindBy(xpath = "(//*[@class='select2-selection__rendered'])[2]")
+    public WebElement shippingBilgisi2;
+
+    @FindBy(xpath = "//*[@data-title='Total']")
+    public WebElement shippingTotalBilgisi;
+
+    @FindBy(xpath = "//*[@class='count form-control']")
+    public WebElement urunShow;
+
+    @FindBy(xpath = "(//*[@class='attachment-woocommerce_thumbnail size-woocommerce_thumbnail'])[1]")
+    public WebElement shopBirinciUrun;
+
+    @FindBy(xpath = "//*[@aria-label='Search']")
+    public WebElement searchBox;
+
+    @FindBy(xpath = "//*[@name='add-to-cart']")
+    public WebElement legoBricksAddCart;
+
+    @FindBy(xpath = "//*[@id='quantity_6353aa1770a33']")
+    public WebElement legoBricksSepetteUrunAdetKutusu;
+
+    @FindBy(xpath = "//*[@class='btn btn-success btn-md']")
+    public WebElement legoBricksUrunSepeteEklendiButon;
+
+    @FindBy(xpath = "//*[@type='number']")
+    public WebElement legoBricksUrunAdetKutusu;
+
+    @FindBy(xpath = "//*[@class='w-icon-angle-up']")
+    public WebElement legoBricksPageUp;
+
+    @FindBy(xpath = "//*[@class='checkout-button button alt wc-forward']")
+    public WebElement proceedToCheckOut;
+
+    @FindBy(xpath = "//*[@id='payment']")
+    public WebElement paymentYazisi;
 
 }

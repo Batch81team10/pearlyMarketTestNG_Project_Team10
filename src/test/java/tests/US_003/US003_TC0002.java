@@ -19,46 +19,20 @@ public class US003_TC0002 {
     @Test
     public void testCase0002() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-
         ReusableMethods.prMrktlogIn();
         Thread.sleep(2000);
-        WebElement myAccount = pearlyMarketPage.myAccountYazisi;
-        //ReusableMethods.waitForVisibility(myAccount, 5);
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);", myAccount);
-        Thread.sleep(1000);
-        pearlyMarketPage.myAccount.click();
-        Thread.sleep(1000);
-        pearlyMarketPage.s8sutunOrder.click();
-        //JavascriptExecutor jse1 = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);", pearlyMarketPage.s8goToShop);
-        Thread.sleep(1000);
-        pearlyMarketPage.s8goToShop.click();
-        Thread.sleep(2000);
-        List<WebElement> urunListesi = pearlyMarketPage.s8shopList;
-        //System.out.println("urunListesi = " + urunListesi);
-
-        int count = 0;
-        int index = 0;
-
-        for (int i = 0; i <= urunListesi.size(); i++) {
-            index = i + 1;
-            WebElement tiklanacakURun = Driver.getDriver().findElement(By.xpath("(//*[@class='product-media'])[" + index + "]"));
-            //JavascriptExecutor jse2 = (JavascriptExecutor) Driver.getDriver();
-            jse.executeScript("arguments[0].scrollIntoView(true);", tiklanacakURun);
-            Actions actions = new Actions(Driver.getDriver());
-            actions.moveToElement(tiklanacakURun).perform();
-
-            if (pearlyMarketPage.s8sepetSimge.isDisplayed()) {
-                pearlyMarketPage.s8sepetSimge.click();
-                Thread.sleep(6000);
-            }
-            count = Integer.parseInt(pearlyMarketPage.s8cartCount.getText());
-            if (count==5) {
-                break;
-            }
-        }
+        ReusableMethods.besUrunEkle();
         Assert.assertEquals(pearlyMarketPage.s8cartCount.getText(), "5");
+
+        Thread.sleep(1000);
+        ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
+        pearlyMarketPage.s8cart.click();
+        pearlyMarketPage.viewCart.click();
+        WebElement clearCart = pearlyMarketPage.clearCart;
+        ReusableMethods.scrollIntoView(clearCart);
+        Thread.sleep(1000);
+        ReusableMethods.waitForClickablility(clearCart, 5);
+        ReusableMethods.click(clearCart);
 
         Driver.closeDriver();
     }

@@ -1,6 +1,7 @@
 package tests.US_003;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -58,6 +59,19 @@ public class US003_TC0004 {
             pearlyMarketPage.s8kapidaOde.click();
         }
         Assert.assertTrue(pearlyMarketPage.s8kapidaOde.isSelected());
+
+        Thread.sleep(1000);
+        actions.sendKeys(Keys.HOME);
+        Thread.sleep(1000);
+        ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
+        pearlyMarketPage.s8cart.click();
+        pearlyMarketPage.viewCart.click();
+        WebElement clearCart = pearlyMarketPage.clearCart;
+        ReusableMethods.scrollIntoView(clearCart);
+        Thread.sleep(1000);
+        ReusableMethods.waitForClickablility(clearCart, 5);
+        ReusableMethods.click(clearCart);
+
         Driver.closeDriver();
     }
 }
