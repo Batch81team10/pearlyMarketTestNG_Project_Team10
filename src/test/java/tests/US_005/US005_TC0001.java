@@ -86,18 +86,14 @@ public class US005_TC0001 {
         Driver.getDriver().switchTo().defaultContent();
 
 
-        //12-Featured Images alanına fotoğraf yuklenir !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // ReusableMethods.click(pearlymarketPage.b2featuredImg);
-        // ReusableMethods.switchToWindow("Choose Image");
-        // ReusableMethods.click(pearlymarketPage.b2FeaturedImgMediaLibraryButton);
-        // actions.sendKeys(Keys.SHIFT).sendKeys(Keys.SHIFT).sendKeys(Keys.ARROW_RIGHT).perform();
-        // ReusableMethods.click(pearlymarketPage.b2FeaturedImgMediaLibraryButton);
-        // ReusableMethods.waitForVisibility(pearlymarketPage.b2FeaturedImgYuklenecekFoto,10);
-        // ReusableMethods.click(pearlymarketPage.b2FeaturedImgYuklenecekFoto);
-        // ReusableMethods.click(pearlymarketPage.b2FeaturedImageSelectMediaButton);
+        //12-Featured Images alanına fotoğraf yuklenir
+        ReusableMethods.click(pearlymarketPage.b2featuredImg);
+        ReusableMethods.click(pearlymarketPage.b2FeaturedImageSelectFileButton);
+
         Robot rb =new Robot();
-        StringSelection str=new StringSelection("C:\\Users\\fatih\\Documents\\resim.png");
+        StringSelection str=new StringSelection("\"C:\\Users\\busra\\OneDrive\\Masaüstü\\picForTest\\elmas küpe.png\"");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+
 
         // press Contol+V for pasting
         rb.keyPress(KeyEvent.VK_CONTROL);
@@ -111,17 +107,47 @@ public class US005_TC0001 {
         rb.keyPress(KeyEvent.VK_ENTER);
         rb.keyRelease(KeyEvent.VK_ENTER);
 
+        ReusableMethods.waitFor(4);
+        ReusableMethods.switchToWindow("Choose Image");
+        pearlymarketPage.b2FeaturedImageSelectButton.click();
 
 
         // 13-Gallery Images alanına fotoğraf yüklenir
-       // ReusableMethods.click(pearlymarketPage.b2galleryImg);
-       // ReusableMethods.click(pearlymarketPage.b2FeaturedImgMediaLibraryButton);  !!!!!!!!!!!!!
-       // ReusableMethods.waitForVisibility(pearlymarketPage.b2FeaturedImgYuklenecekFoto,10);
-       // ReusableMethods.click(pearlymarketPage.b2FeaturedImgYuklenecekFoto);
-       // ReusableMethods.click(pearlymarketPage.b2GalleryImageAddToGalleryButton);
+        ReusableMethods.click(pearlymarketPage.b2galleryImg);
+        ReusableMethods.click(pearlymarketPage.b2GalleryImageSelectFileButton);
+        ReusableMethods.waitFor(3);
+
+        Robot rb2 =new Robot();
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+
+
+        // press Contol+V for pasting
+        rb2.keyPress(KeyEvent.VK_CONTROL);
+        rb2.keyPress(KeyEvent.VK_V);
+
+        // release Contol+V for pasting
+        rb2.keyRelease(KeyEvent.VK_CONTROL);
+        rb2.keyRelease(KeyEvent.VK_V);
+
+        ReusableMethods.waitFor(2);
+
+        // for pressing and releasing Enter
+        rb2.keyPress(KeyEvent.VK_ENTER);
+        rb2.keyRelease(KeyEvent.VK_ENTER);
+
+
+
+        ReusableMethods.waitFor(6);
+        ReusableMethods.switchToWindow("Add to Gallery");
+        pearlymarketPage.b2GalleryImageAddToGalleryButton.click();
+
 
         // 14-Categories alanının erişilebilir olduğu onaylanır
         pearlymarketPage.b2CategoriesList.forEach(t-> Assert.assertTrue(t.isEnabled()));
+
+        ReusableMethods.waitFor(2);
+
+        Driver.getDriver().close();
 
 
 

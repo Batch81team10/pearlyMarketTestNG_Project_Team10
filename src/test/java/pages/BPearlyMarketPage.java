@@ -61,18 +61,11 @@ public class BPearlyMarketPage {
     @FindBy(xpath ="//img[@id='featured_img_display']")
     public WebElement b2featuredImg;
 
-    @FindBy(xpath ="//button[@id='__wp-uploader-id-7']")
+    @FindBy(xpath ="//button[contains(@id,'__wp-uploader-id')]")
     public WebElement b2FeaturedImageSelectFileButton;
 
-    @FindBy(xpath ="(//button[@id='menu-item-browse'])[21]")
-    public WebElement b2FeaturedImgMediaLibraryButton;
-
-    @FindBy(xpath ="(//div[@class='thumbnail'])[1]")
-    public WebElement b2FeaturedImgYuklenecekFoto;
-
-    @FindBy(xpath ="(//button[@class='button media-button button-primary button-large media-button-select'])[3]")
-    public WebElement b2FeaturedImageSelectMediaButton;
-
+    @FindBy(xpath = "(//button[@class='button media-button button-primary button-large media-button-select'])[1]")
+    public WebElement b2FeaturedImageSelectButton;
 
     @FindBy(xpath ="//img[@id='gallery_img_gimage_0_display']")
     public WebElement b2galleryImg;
@@ -124,5 +117,10 @@ public class BPearlyMarketPage {
 
     @FindBy(xpath ="//span[@class='product-status product-status-publish']")
     public WebElement b2UrunEklendiText;
+
+    @FindBy(xpath = "(//*[contains(text(), 'Please insert Product Title before submit.')])[1]")
+    public WebElement b2ButunHataYazilari;
+
+
 
 }

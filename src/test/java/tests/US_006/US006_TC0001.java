@@ -27,9 +27,11 @@ public class US006_TC0001 {
 
        // 3-Add New butonuna basar
         pearlyMarketPage.b2addNewButton.click();
+        ReusableMethods.waitFor(2);
 
        // 4-Categories alanının göründüğünü onaylar
         pearlyMarketPage.b2CategoriesList.forEach(t-> Assert.assertTrue(t.isDisplayed()));
+        ReusableMethods.waitFor(1);
 
        // 5-Categories alanından seçim yapılabildiğini onaylar
         pearlyMarketPage.b2ProductCategoriesClickButtonList.forEach(t-> ReusableMethods.click(t));
