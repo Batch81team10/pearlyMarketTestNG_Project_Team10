@@ -10,22 +10,51 @@ import pages.S8PearlyMarketPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class US003_TC0005 {
-    S8PearlyMarketPage pearlyMarketPage = new S8PearlyMarketPage();
-    Actions actions = new Actions(Driver.getDriver());
+public class US003_TC0005 extends TestBaseRapor {
+
+    S8PearlyMarketPage pearlyMarketPage;
+    Actions actions;
 
     @Test
     public void testCase0005() throws InterruptedException {
 
+        pearlyMarketPage= new S8PearlyMarketPage();
+        actions=new Actions(Driver.getDriver());
+
+        extentTest = extentReports.createTest("TestCase_0001", "MyAccount gorunur olmalı");
+
+        //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-        Thread.sleep(1000);
-        //ReusableMethods.prMrktlogIn();
-        //ReusableMethods.besUrunEkle();
-        //ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
+        extentTest.info("url'ye gidildi");
+
+        //2. vendor signin butonuna tıklar
+        //3. vendor gecerli bir username girer
+        //4. vendor gecerli bir password girer
+        //5. vendor sign in butonuna basar
+        ReusableMethods.waitFor(1);
+        ReusableMethods.prMrktlogIn();
+        extentTest.info("sayfaya login olundu");
+
+        //6. vendor sepete tıklar
         pearlyMarketPage.s8cart.click();
+        extentTest.info("sepete tıklandı");
+
+        //7. vendor checkout!a tıklar
         ReusableMethods.waitFor(1);
         pearlyMarketPage.s8checkOut.click();
+        extentTest.info("checkOut tıklandı");
+
+        //8. vendor country'ye tıklar ülke secer
+        //9. vendor firstname bilgisi girer
+        //10. vendor lastname bilgisi girer
+        //11. vendorstreet adres satırına adres yazar
+        //12. vendor town city bilgisi girer
+        //13. vendor satate bilgisi girer
+        //14. vendor zıp code bilgisi girer
+        //15. vendor phone bilgisi girer
+        //16. vendor email bilgisi girer
         ReusableMethods.waitFor(1);
         pearlyMarketPage.s8firsName.sendKeys("can");
         actions.sendKeys(Keys.TAB)
@@ -61,12 +90,28 @@ public class US003_TC0005 {
                 .sendKeys(Keys.PAGE_DOWN)
                 .perform();
         Thread.sleep(3000);
+
+
         if (!pearlyMarketPage.s8kapidaOde.isSelected()) {
             pearlyMarketPage.s8kapidaOde.click();
         }
         Thread.sleep(1000);
+        extentTest.info("siparis ve Fatura Bilgileri dolduruldu.");
+
+        //17. vendor place order'a tıklar
         pearlyMarketPage.s8placeHolder.click();
+        extentTest.pass("Siparis Başarı ile olusturuldu.");
+
         Assert.assertTrue(pearlyMarketPage.s8siparisAlindiYazisi.isDisplayed());
+
+        //18. vendor Logout yapar
+        ReusableMethods.waitFor(4);
+        pearlyMarketPage.s8signOut.click();
+        ReusableMethods.waitFor(2);
+        ReusableMethods.scrollIntoView(pearlyMarketPage.logOut);
+        ReusableMethods.waitFor(1);
+        pearlyMarketPage.logOut.click();
+
         Driver.closeDriver();
     }
 }

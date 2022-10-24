@@ -18,7 +18,7 @@ public class US004_TC0007 {
 
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         Thread.sleep(1000);
-        //ReusableMethods.prMrktlogIn();
+        ReusableMethods.prMrktlogIn();
         ReusableMethods.waitFor(2);
         pearlyMarketPage.searchBox.sendKeys("legobricks", Keys.ENTER);
         Thread.sleep(1000);
@@ -33,6 +33,6 @@ public class US004_TC0007 {
         ReusableMethods.click(ekle);
         Thread.sleep(2000);
         Assert.assertEquals(pearlyMarketPage.s8cartCount.getText(), "0");
-        //Driver.quitDriver();
+        Driver.quitDriver();
     }
 }

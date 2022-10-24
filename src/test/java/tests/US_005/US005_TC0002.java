@@ -21,7 +21,7 @@ public class US005_TC0002 {
     Actions actions;
 
     @Test
-    public void US005_TC0002() throws AWTException {
+    public void US005_TC0002() throws AWTException, InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         ReusableMethods.prMrktlogIn();
         ReusableMethods.waitFor(5);
@@ -44,6 +44,7 @@ public class US005_TC0002 {
 
 
        //6- Featured Image alanına fotoğraf yükler
+
          ReusableMethods.click(pearlyMarketPage.b2featuredImg);
          ReusableMethods.waitFor(2);
          ReusableMethods.click(pearlyMarketPage.b2FeaturedImageSelectFileButton);
@@ -53,7 +54,6 @@ public class US005_TC0002 {
          Robot rb =new Robot();
          StringSelection str=new StringSelection("\"C:\\Users\\busra\\OneDrive\\Masaüstü\\picForTest\\elmas küpe.png\"");
          Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
-
 
          // press Contol+V for pasting
          rb.keyPress(KeyEvent.VK_CONTROL);
@@ -72,9 +72,7 @@ public class US005_TC0002 {
          ReusableMethods.click(pearlyMarketPage.b2FeaturedImageSelectButton);
 
 
-
-
-         //7-Gallery Images alanına fotoğraf yükler
+        //7-Gallery Images alanına fotoğraf yükler
          ReusableMethods.click(pearlyMarketPage.b2galleryImg);
          ReusableMethods.click(pearlyMarketPage.b2GalleryImageSelectFileButton);
          ReusableMethods.waitFor(3);

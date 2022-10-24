@@ -97,7 +97,7 @@ public class US004_TC0008 {
         ReusableMethods.waitFor(1);
         ReusableMethods.click(clearCart);
         ReusableMethods.waitFor(1);
-        Driver.closeDriver();
+        Driver.quitDriver();
 
     }
 }

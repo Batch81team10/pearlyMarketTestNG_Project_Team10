@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.EPearlyMarketPage;
 import pages.PearlyMarketPage;
 import pages.S8PearlyMarketPage;
 
@@ -208,6 +209,25 @@ public class ReusableMethods {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].value='"+text+"';", element);
     }
+    //========PearlyDriver=====//
+    public static void PearlyDriver()  {
+        Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
+        EPearlyMarketPage pearlyMarketPage = new EPearlyMarketPage();
+        pearlyMarketPage.signInButonu.click();
+        pearlyMarketPage.usernameButonu.sendKeys("team10.batch81@gmail.com");
+        pearlyMarketPage.passwordButonu.sendKeys("testng1081");
+        pearlyMarketPage.signbutonu.click();
+        ReusableMethods.waitFor(5);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
+        ReusableMethods.waitFor(3);
+        pearlyMarketPage.myAccount.click();
+        pearlyMarketPage.storeManagerButonu.click();
+        ReusableMethods.waitFor(3);
+        ReusableMethods.click(pearlyMarketPage.productButonu);
+        pearlyMarketPage.addNewButonu.click();
+
+    }
 
     //============= 5 ADET URUN EKLEME =================//
 
@@ -241,13 +261,6 @@ public class ReusableMethods {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        /*
-        Select select = new Select(pearlyMarketPage.urunShow);
-        select.selectByVisibleText("Show 36");
-
-        ReusableMethods.waitFor(7);
-
-         */
 
         List<WebElement> urunListesi = pearlyMarketPage.s8shopList;
 

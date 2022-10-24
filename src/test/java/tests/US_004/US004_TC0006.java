@@ -1,18 +1,24 @@
 package tests.US_004;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.S8PearlyMarketPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class US004_TC0006 {
-    S8PearlyMarketPage pearlyMarketPage = new S8PearlyMarketPage();
+public class US004_TC0006 extends TestBaseRapor {
 
+    S8PearlyMarketPage pearlyMarketPage;
+    Actions actions;
 
     @Test
     public void TC0006() throws InterruptedException {
+
+        pearlyMarketPage= new S8PearlyMarketPage();
+        actions=new Actions(Driver.getDriver());
 
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         Thread.sleep(1000);
