@@ -22,8 +22,8 @@ public class US004_TC0008 {
 
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         Thread.sleep(1000);
-        ReusableMethods.prMrktlogIn();
-
+        //ReusableMethods.prMrktlogIn();
+        ReusableMethods.waitFor(2);
         WebElement myAccount = pearlyMarketPage.myAccountYazisi;
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].scrollIntoView(true);", myAccount);
@@ -98,7 +98,6 @@ public class US004_TC0008 {
         ReusableMethods.click(clearCart);
         ReusableMethods.waitFor(1);
         Driver.closeDriver();
-        ReusableMethods.waitFor(1);
 
     }
 }

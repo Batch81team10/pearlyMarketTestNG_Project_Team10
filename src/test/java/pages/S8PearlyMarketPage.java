@@ -40,7 +40,7 @@ public class S8PearlyMarketPage {
     @FindBy(xpath = "(//*[@class='cart-count'])[1]")
     public WebElement s8cartCount;
 
-    @FindBy(xpath = "//*[@class='cart-name']")
+    @FindBy(xpath = "(//*[text()='Cart'])[1]")
     public WebElement s8cart;
 
     @FindBy(xpath = "//*[@class='button checkout wc-forward']")
@@ -166,5 +166,9 @@ public class S8PearlyMarketPage {
 
     @FindBy(xpath = "//*[@id='payment']")
     public WebElement paymentYazisi;
+
+    @FindBy(xpath = "(//*[@class='text-uppercase text-center mb-0'])[6]")
+    public WebElement logOut;
+
 
 }

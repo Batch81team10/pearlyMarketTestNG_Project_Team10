@@ -14,13 +14,14 @@ public class US003_TC0003 {
     @Test
     public void testCase0003() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-        ReusableMethods.prMrktlogIn();
-        ReusableMethods.besUrunEkle();
-        ReusableMethods.waitForVisibility(pearlyMarketPage.s8signOut, 5);
+        //ReusableMethods.prMrktlogIn();
+        //ReusableMethods.besUrunEkle();
+        //ReusableMethods.waitForVisibility(pearlyMarketPage.s8signOut, 5);
         pearlyMarketPage.s8cart.click();
+        ReusableMethods.waitFor(1);
         pearlyMarketPage.s8checkOut.click();
         Assert.assertTrue(pearlyMarketPage.s8checkOutYazisi.isDisplayed());
-
+/*
         Thread.sleep(1000);
         ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
         pearlyMarketPage.s8cart.click();
@@ -30,6 +31,8 @@ public class US003_TC0003 {
         Thread.sleep(1000);
         ReusableMethods.waitForClickablility(clearCart, 5);
         ReusableMethods.click(clearCart);
-        Driver.closeDriver();
+
+ */
+        //Driver.closeDriver();
     }
 }

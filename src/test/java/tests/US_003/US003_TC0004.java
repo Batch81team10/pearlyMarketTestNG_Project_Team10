@@ -17,10 +17,12 @@ public class US003_TC0004 {
     @Test
     public void testCase0004() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-        ReusableMethods.prMrktlogIn();
-        ReusableMethods.waitForVisibility(pearlyMarketPage.s8signOut, 5);
+        //ReusableMethods.prMrktlogIn();
+        //ReusableMethods.waitForVisibility(pearlyMarketPage.s8signOut, 5);
         pearlyMarketPage.s8cart.click();
+        ReusableMethods.waitFor(1);
         pearlyMarketPage.s8checkOut.click();
+        ReusableMethods.waitFor(1);
         pearlyMarketPage.s8firsName.sendKeys("can");
         actions.sendKeys(Keys.TAB)
                 .sendKeys("caner")
@@ -59,7 +61,7 @@ public class US003_TC0004 {
             pearlyMarketPage.s8kapidaOde.click();
         }
         Assert.assertTrue(pearlyMarketPage.s8kapidaOde.isSelected());
-
+/*
         Thread.sleep(1000);
         actions.sendKeys(Keys.HOME);
         Thread.sleep(1000);
@@ -72,6 +74,8 @@ public class US003_TC0004 {
         ReusableMethods.waitForClickablility(clearCart, 5);
         ReusableMethods.click(clearCart);
 
-        Driver.closeDriver();
+ */
+
+        //Driver.closeDriver();
     }
 }

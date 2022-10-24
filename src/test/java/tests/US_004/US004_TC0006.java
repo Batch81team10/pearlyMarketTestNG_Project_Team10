@@ -16,9 +16,9 @@ public class US004_TC0006 {
 
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         Thread.sleep(1000);
-        ReusableMethods.prMrktlogIn();
+        //ReusableMethods.prMrktlogIn();
         //ReusableMethods.besUrunEkle();
-        Thread.sleep(1000);
+        ReusableMethods.waitFor(2);
         pearlyMarketPage.s8cart.click();
         ReusableMethods.waitFor(1);
         WebElement viewCart = pearlyMarketPage.viewCart;
@@ -30,8 +30,7 @@ public class US004_TC0006 {
         ReusableMethods.waitForClickablility(clearCart, 5);
         ReusableMethods.click(clearCart);
         ReusableMethods.waitFor(1);
-        Driver.closeDriver();
-        ReusableMethods.waitFor(1);
+        //Driver.quitDriver();
 
     }
 }

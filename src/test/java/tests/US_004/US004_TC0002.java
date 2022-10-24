@@ -11,6 +11,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class US004_TC0002 {
@@ -20,10 +21,15 @@ public class US004_TC0002 {
     public void testCase0002() throws InterruptedException {
 
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
+
         Thread.sleep(1000);
-        ReusableMethods.prMrktlogIn();
+        //ReusableMethods.prMrktlogIn();
         //ReusableMethods.besUrunEkle();
-        Thread.sleep(1000);
+        ReusableMethods.waitFor(6);
+        //ArrayList<String> windows = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+        //System.out.println(windows.toString());
+        //ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
+        //ReusableMethods.click(pearlyMarketPage.s8cart);
         pearlyMarketPage.s8cart.click();
         WebElement viewCart = pearlyMarketPage.viewCart;
         ReusableMethods.click(viewCart);
@@ -76,8 +82,7 @@ public class US004_TC0002 {
         ReusableMethods.click(clearCart);
 
  */
-        Driver.closeDriver();
-        ReusableMethods.waitFor(1);
+        //Driver.closeDriver();
 
     }
 }

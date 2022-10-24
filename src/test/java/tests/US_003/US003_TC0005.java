@@ -20,13 +20,13 @@ public class US003_TC0005 {
 
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         Thread.sleep(1000);
-        ReusableMethods.prMrktlogIn();
-        ReusableMethods.besUrunEkle();
-        ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
+        //ReusableMethods.prMrktlogIn();
+        //ReusableMethods.besUrunEkle();
+        //ReusableMethods.waitForClickablility(pearlyMarketPage.s8cart, 5);
         pearlyMarketPage.s8cart.click();
-
+        ReusableMethods.waitFor(1);
         pearlyMarketPage.s8checkOut.click();
-        //pearlyMarketPage.s8checkOut.click();
+        ReusableMethods.waitFor(1);
         pearlyMarketPage.s8firsName.sendKeys("can");
         actions.sendKeys(Keys.TAB)
                 .sendKeys("caner")

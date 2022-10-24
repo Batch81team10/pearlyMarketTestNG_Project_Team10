@@ -15,7 +15,7 @@ public class US002_TC0004 {
     @Test
     public void testCase0002() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-        ReusableMethods.prMrktlogIn();
+        //ReusableMethods.prMrktlogIn();
         WebElement myAccount = pearlyMarketPage.myAccountYazisi;
         ReusableMethods.waitForVisibility(myAccount, 5);
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();

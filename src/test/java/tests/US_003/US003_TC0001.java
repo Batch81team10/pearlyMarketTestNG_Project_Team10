@@ -30,6 +30,6 @@ public class US003_TC0001 {
         pearlyMarketPage.s8goToShop.click();
         Thread.sleep(1000);
         Assert.assertTrue(pearlyMarketPage.s8shopYazisi.isDisplayed());
-        Driver.closeDriver();
+        //Driver.closeDriver();
     }
 }

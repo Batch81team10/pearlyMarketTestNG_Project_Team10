@@ -1,7 +1,10 @@
 package tests.US_002;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.DerivationControl;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.S8PearlyMarketPage;
@@ -17,9 +20,12 @@ public class US002_TC0002 {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         ReusableMethods.prMrktlogIn();
         WebElement myAccount = pearlyMarketPage.myAccountYazisi;
-        //ReusableMethods.waitForVisibility(myAccount, 5);
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);", myAccount);
+        Actions actions=new Actions(Driver.getDriver());
+        actions.moveToElement(myAccount);
+
+    //    JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        Thread.sleep(3);
+     //   jse.executeScript("arguments[0].scrollIntoView(true);", myAccount);
         Thread.sleep(1000);
         pearlyMarketPage.myAccount.click();
         Thread.sleep(3000);

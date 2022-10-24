@@ -14,7 +14,7 @@ public class US002_TC0003 {
     @Test
     public void testCase0003() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-        ReusableMethods.prMrktlogIn();
+        //ReusableMethods.prMrktlogIn();
         WebElement myAccount = pearlyMarketPage.myAccountYazisi;
         ReusableMethods.waitForVisibility(myAccount, 5);
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
@@ -23,6 +23,6 @@ public class US002_TC0003 {
         pearlyMarketPage.myAccount.click();
         pearlyMarketPage.s8dashboard.click();
         Assert.assertTrue(pearlyMarketPage.storeManager.isDisplayed());
-        Driver.closeDriver();
+       Driver.closeDriver();
     }
 }

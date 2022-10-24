@@ -1,8 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="calistir">
-    <test name="US2-3-4">
+<suite name="US004">
+    <test name="US003">
         <packages>
-            <package name="tests.US_004"/>
+            <package name="tests.US_003"></package>
         </packages>
     </test>
+
 </suite>

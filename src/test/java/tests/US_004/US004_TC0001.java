@@ -30,16 +30,18 @@ public class US004_TC0001{
         Assert.assertTrue(pearlyMarketPage.sepettekiIlkUrunAdetYazisi.isDisplayed());
         Thread.sleep(1000);
         Assert.assertTrue(pearlyMarketPage.sepettekiIlkUrunToplamFiyatYazisi.isDisplayed());
-/*
-        WebElement clearCart = pearlyMarketPage.clearCart;
-        ReusableMethods.scrollIntoView(clearCart);
-        Thread.sleep(1000);
-        ReusableMethods.waitForClickablility(clearCart, 5);
-        ReusableMethods.click(clearCart);
 
- */
-        Driver.closeDriver();
+        /*
         ReusableMethods.waitFor(1);
+        pearlyMarketPage.s8signOut.click();
+        ReusableMethods.waitFor(2);
+        ReusableMethods.scrollIntoView(pearlyMarketPage.logOut);
+        ReusableMethods.waitFor(1);
+        pearlyMarketPage.logOut.click();
+        */
+         Driver.closeDriver();
+
+
 
     }
 }
