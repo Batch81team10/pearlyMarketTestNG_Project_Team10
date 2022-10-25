@@ -23,7 +23,7 @@ public class US003_TC0005 extends TestBaseRapor {
         pearlyMarketPage= new S8PearlyMarketPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("TestCase_0001", "MyAccount gorunur olmalı");
+        extentTest = extentReports.createTest("US003 TestCase_0005", "Sipariş olusturulabilmeli");
 
         //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
@@ -56,6 +56,7 @@ public class US003_TC0005 extends TestBaseRapor {
         //15. vendor phone bilgisi girer
         //16. vendor email bilgisi girer
         ReusableMethods.waitFor(1);
+        pearlyMarketPage.s8firsName.clear();
         pearlyMarketPage.s8firsName.sendKeys("can");
         actions.sendKeys(Keys.TAB)
                 .sendKeys("caner")
@@ -76,7 +77,7 @@ public class US003_TC0005 extends TestBaseRapor {
                 .sendKeys("Florida")
                 .sendKeys(Keys.ENTER).perform();
         pearlyMarketPage.s8zipcode.clear();
-        pearlyMarketPage.s8zipcode.sendKeys("382541");
+        pearlyMarketPage.s8zipcode.sendKeys("82541");
         actions.sendKeys(Keys.TAB)
                 .sendKeys("1234567890")
                 .sendKeys(Keys.TAB)
@@ -102,15 +103,9 @@ public class US003_TC0005 extends TestBaseRapor {
         pearlyMarketPage.s8placeHolder.click();
         extentTest.pass("Siparis Başarı ile olusturuldu.");
 
-        Assert.assertTrue(pearlyMarketPage.s8siparisAlindiYazisi.isDisplayed());
-
-        //18. vendor Logout yapar
-        ReusableMethods.waitFor(4);
-        pearlyMarketPage.s8signOut.click();
         ReusableMethods.waitFor(2);
-        ReusableMethods.scrollIntoView(pearlyMarketPage.logOut);
+        Assert.assertTrue(pearlyMarketPage.s8siparisAlindiYazisi.isDisplayed());
         ReusableMethods.waitFor(1);
-        pearlyMarketPage.logOut.click();
 
         Driver.closeDriver();
     }

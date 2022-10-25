@@ -22,7 +22,7 @@ public class US003_TC0004 extends TestBaseRapor {
         pearlyMarketPage= new S8PearlyMarketPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("US003_TestCase_0003", "checkOut butonunun gorunur olmalı");
+        extentTest = extentReports.createTest("US003 TestCase_0004", "adres bilgileri girilebilmeli");
 
         //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
@@ -90,7 +90,7 @@ public class US003_TC0004 extends TestBaseRapor {
             pearlyMarketPage.s8kapidaOde.click();
         }
         Assert.assertTrue(pearlyMarketPage.s8kapidaOde.isSelected());
-        extentTest.pass("Vendor kapıda ode seceneginin secildigini dogrular");
+        extentTest.pass("Adres bilgileri girildigi gorulur");
 
         //15. vendor Logout yapar
         ReusableMethods.waitFor(1);

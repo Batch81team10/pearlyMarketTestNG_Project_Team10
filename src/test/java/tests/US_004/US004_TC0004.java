@@ -17,12 +17,12 @@ public class US004_TC0004 extends TestBaseRapor {
     Actions actions;
 
     @Test
-    public void TC0006() throws InterruptedException {
+    public void testCase0004() throws InterruptedException {
 
         pearlyMarketPage= new S8PearlyMarketPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("US004 TestCase_0002", "sepetteki urun artırılıp azaltılmalı");
+        extentTest = extentReports.createTest("US004 TestCase_0004", "Continue Shopping butonu gorulmeli");
 
         //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));

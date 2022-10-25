@@ -209,6 +209,7 @@ public class ReusableMethods {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].value='"+text+"';", element);
     }
+
     //========PearlyDriver=====//
     public static void PearlyDriver()  {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));

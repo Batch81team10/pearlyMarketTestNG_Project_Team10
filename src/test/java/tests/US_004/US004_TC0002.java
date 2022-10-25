@@ -27,7 +27,7 @@ public class US004_TC0002 extends TestBaseRapor {
         pearlyMarketPage= new S8PearlyMarketPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("US004 TestCase_0002", "sepetteki urun artırılıp azaltılmalı");
+        extentTest = extentReports.createTest("US004 TestCase_0002", "urun miktarının artırılıp azaltıldıgı gorulmeli");
 
         //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));

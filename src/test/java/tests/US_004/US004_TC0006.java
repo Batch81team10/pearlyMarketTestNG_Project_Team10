@@ -1,5 +1,6 @@
 package tests.US_004;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
@@ -15,28 +16,55 @@ public class US004_TC0006 extends TestBaseRapor {
     Actions actions;
 
     @Test
-    public void TC0006() throws InterruptedException {
+    public void testCase0006() throws InterruptedException {
 
         pearlyMarketPage= new S8PearlyMarketPage();
         actions=new Actions(Driver.getDriver());
 
+        extentTest = extentReports.createTest("US004 TestCase_0006", "sepetteki urunler silinebilmeli");
+
+        //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-        Thread.sleep(1000);
-        //ReusableMethods.prMrktlogIn();
-        //ReusableMethods.besUrunEkle();
+        extentTest.info("url'ye gidildi");
+
+        //2. vendor signin butonuna tıklar
+        //3. vendor gecerli bir username girer
+        //4. vendor gecerli bir password girer
+        //5. vendor sign in butonuna basar
+        ReusableMethods.waitFor(1);
+        ReusableMethods.prMrktlogIn();
+        extentTest.info("sayfaya login olundu");
+
+        //6. vendor cart'a tıklar
         ReusableMethods.waitFor(2);
         pearlyMarketPage.s8cart.click();
+        extentTest.info("sepete tıklandı");
+
+        //7. vendor wiew Cart'a tıklar
         ReusableMethods.waitFor(1);
         WebElement viewCart = pearlyMarketPage.viewCart;
         ReusableMethods.click(viewCart);
-        Thread.sleep(3000);
+        extentTest.info("wiew karta tıklandı");
+
+        //8. vendor clear cart'a tıklar
+        ReusableMethods.waitFor(1);
         WebElement clearCart = pearlyMarketPage.clearCart;
         ReusableMethods.scrollIntoView(clearCart);
-        Thread.sleep(1000);
-        ReusableMethods.waitForClickablility(clearCart, 5);
-        ReusableMethods.click(clearCart);
         ReusableMethods.waitFor(1);
-        //Driver.quitDriver();
+        ReusableMethods.click(clearCart);
+        extentTest.pass("Sepetteki urunlerin silindiği goruldu");
+
+        //9. vendor Logout yapar
+        ReusableMethods.waitFor(2);
+        actions.sendKeys(Keys.HOME).perform();
+        ReusableMethods.waitFor(2);
+        pearlyMarketPage.s8signOut.click();
+        ReusableMethods.waitFor(2);
+        ReusableMethods.scrollIntoView(pearlyMarketPage.logOut);
+        ReusableMethods.waitFor(1);
+        pearlyMarketPage.logOut.click();
+
+        Driver.closeDriver();
 
     }
 }

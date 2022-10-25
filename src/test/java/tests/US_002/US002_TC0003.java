@@ -23,7 +23,7 @@ public class US002_TC0003 extends TestBaseRapor {
         pearlyMarketPage= new S8PearlyMarketPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("TestCase_0003", "storeManager butonunu gorunur olmalı");
+        extentTest = extentReports.createTest("US002 TestCase_0003", "storeManager butonunu gorunur olmalı");
 
         //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
