@@ -36,19 +36,19 @@ public class US_013_TC_002 {
                 sendKeys(Keys.ARROW_DOWN).perform();
         actions.moveToElement(couppon).click(addNew).perform();
         //5.code butonuna  sayisal deger ve harf yazar
-        pm.acode.sendKeys("save150");
+        pm.acode.sendKeys(ConfigReader.getProperty("coupponName2"));
         //6.kuponu turune gore aciklar
-        pm.adescription.sendKeys("1000 dolar ve uzeri alisverislerde gecerlidir");
+        pm.adescription.sendKeys(ConfigReader.getProperty("description2"));
         //7.Discount Type menusundeki seceneklerden "fixed product discoun'u" secer
         WebElement discountType = pm.adiscountType;
         Select options = new Select(discountType);
         options.selectByIndex(1);
         //8.Coupon Amount butonuna 0'dan buyuk bir deger girer
         pm.aamount.clear();
-        pm.aamount.sendKeys("150");
+        pm.aamount.sendKeys(ConfigReader.getProperty("amount2"));
         //9.Coupon expiry date bolumune guncel tarih veya sonrasi bir deger  girer
-        pm.adate.click();
-        pm.adayNumber.click();
+        ReusableMethods.click(pm.adate);
+        pm.adate.sendKeys(ConfigReader.getProperty("validDate"));
         //10.Kupon ücretsiz gönderim sağlıyorsa Free shipping kutucugunu isaretller
         WebElement free = pm.afreeShipping;
         ReusableMethods.click(free);
