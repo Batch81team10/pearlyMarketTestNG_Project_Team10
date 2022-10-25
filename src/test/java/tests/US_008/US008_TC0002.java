@@ -59,6 +59,10 @@ public class US008_TC0002 extends TestBaseRapor {
             sayac++;
 
         }
+        extentTest.info("Allow Backorders? alanından seçenekleri tek tek seçilebilir oduğunu test eder");
         Assert.assertEquals(sayac,tumSecenekler.size());
+
+
+        extentReports.flush();
     }
 }

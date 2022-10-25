@@ -28,6 +28,8 @@ public class US007_TC0001 extends TestBaseRapor {
                 pearlyMarketPage.NS8,
                 pearlyMarketPage.NodeJs));
         int sayac = 0;
+        extentTest.info("Belirtilen markalarin gorunurlugu test edildi");
+        extentTest.info("Belirtilen markalara tiklanabildigi test edildi");
         for (WebElement w : brands
         ) {
             Assert.assertTrue(w.isDisplayed());
@@ -38,8 +40,7 @@ public class US007_TC0001 extends TestBaseRapor {
 
         }
         System.out.println(sayac);
-        extentTest.info("Belirtilen markalarin gorunurlugu test edildi");
-        extentTest.info("Belirtilen markalara tiklanabildigi test edildi");
+
 
         extentReports.flush();
     }

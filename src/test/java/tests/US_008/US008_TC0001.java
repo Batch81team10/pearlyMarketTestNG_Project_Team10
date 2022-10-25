@@ -64,10 +64,10 @@ public class US008_TC0001 extends TestBaseRapor {
         ReusableMethods.click(pearlyMarketPage.productButonu);
         ReusableMethods.waitFor(10);
 
-
+        extentTest.info("Stok miktarının belirlenebildiği test edildi.");
         String actual=pearlyMarketPage.inStock.getText();
         Assert.assertEquals(actual,"In stock (45)");
-        extentTest.info("Stok miktarının belirlenebildiği test edildi.");
+
 
         extentReports.flush();
     }
