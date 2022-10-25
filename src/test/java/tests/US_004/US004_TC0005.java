@@ -1,7 +1,5 @@
-package tests.US_002;
+package tests.US_004;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.DerivationControl;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,18 +11,18 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
-public class US002_TC0002 extends TestBaseRapor {
+public class US004_TC0005 extends TestBaseRapor {
 
     S8PearlyMarketPage pearlyMarketPage;
     Actions actions;
 
     @Test
-    public void testCase0002() throws InterruptedException {
+    public void testCase0005() throws InterruptedException {
 
         pearlyMarketPage= new S8PearlyMarketPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("US002 TestCase_0002", "Order butonu gorunur olmalı");
+        extentTest = extentReports.createTest("US004 TestCase_0005", "Shiping bilgileri gorulmeli");
 
         //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
@@ -34,25 +32,33 @@ public class US002_TC0002 extends TestBaseRapor {
         //3. vendor gecerli bir username girer
         //4. vendor gecerli bir password girer
         //5. vendor sign in butonuna basar
+        Thread.sleep(1000);
         ReusableMethods.prMrktlogIn();
-        WebElement myAccount = pearlyMarketPage.myAccountYazisi;
-        actions.moveToElement(myAccount);
-        ReusableMethods.waitFor(2);
         extentTest.info("sayfaya login olundu");
 
-        //6. vendor My Account butonuna basar
-        ReusableMethods.click(pearlyMarketPage.myAccount);
-        //pearlyMarketPage.myAccount.click();
+        //6. vendor cart'a tıklar
+        ReusableMethods.waitFor(2);
+        pearlyMarketPage.s8cart.click();
+        extentTest.info("sepete tıklandı");
+
+        //7. vendor wiew Cart'a tıklar
+        ReusableMethods.waitFor(1);
+        WebElement viewCart = pearlyMarketPage.viewCart;
+        ReusableMethods.click(viewCart);
+        extentTest.info("wiew karta tıklandı");
+
+        //8. vendor Shipping bilgilerini ve toplam tutarı gorebilmeli
         Thread.sleep(3000);
-        ReusableMethods.scrollIntoView(pearlyMarketPage.s8sutunOrder);
-        Thread.sleep(2000);
-        extentTest.info("myAccount'a tıklandı");
+        ReusableMethods.scrollIntoView(pearlyMarketPage.shippingBilgisi1);
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(pearlyMarketPage.shippingBilgisi1.isDisplayed());
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(pearlyMarketPage.shippingBilgisi2.isDisplayed());
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(pearlyMarketPage.shippingTotalBilgisi.isDisplayed());
+        extentTest.pass("Shipping bilgilerinin gorunurlugu dogrulandı");
 
-        //7. Orders, Downloads, addresses, account details,whislist ve Logout gorulmeli
-        Assert.assertTrue(pearlyMarketPage.s8sutunOrder.isDisplayed());
-        extentTest.pass("Orders elementinin gorunurlugu dogrulandi");
-
-        //8. vendor Logout yapar
+        //9. vendor Logout yapar
         ReusableMethods.waitFor(1);
         actions.sendKeys(Keys.HOME).perform();
         ReusableMethods.waitFor(2);
@@ -63,5 +69,6 @@ public class US002_TC0002 extends TestBaseRapor {
         pearlyMarketPage.logOut.click();
 
         Driver.closeDriver();
+
     }
 }

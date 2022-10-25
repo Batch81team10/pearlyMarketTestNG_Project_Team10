@@ -1,4 +1,4 @@
-package tests.US_003;
+package tests.US_004;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -7,12 +7,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.S8PearlyMarketPage;
+import tests.US_003.US003_TC0002;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
-public class US003_TC0001 extends TestBaseRapor {
+public class US004_TC0001 extends TestBaseRapor {
 
     S8PearlyMarketPage pearlyMarketPage;
     Actions actions;
@@ -23,7 +24,7 @@ public class US003_TC0001 extends TestBaseRapor {
         pearlyMarketPage= new S8PearlyMarketPage();
         actions=new Actions(Driver.getDriver());
 
-        extentTest = extentReports.createTest("US003 TestCase_0001", "go shop butonunu gorunur olmalı");
+        extentTest = extentReports.createTest("US004 TestCase_0001", "urun rakam, miktar ve fiyat bilgilerinin gorulmeli");
 
         //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
@@ -35,33 +36,36 @@ public class US003_TC0001 extends TestBaseRapor {
         //5. vendor sign in butonuna basar
         ReusableMethods.waitFor(1);
         ReusableMethods.prMrktlogIn();
-        WebElement myAccount = pearlyMarketPage.myAccountYazisi;
-        ReusableMethods.waitForVisibility(myAccount, 5);
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);", myAccount);
-        Thread.sleep(1000);
         extentTest.info("sayfaya login olundu");
 
-        //6. vendor My Account'a tıklar
-        pearlyMarketPage.myAccount.click();
-        Thread.sleep(1000);
-        extentTest.info("My Account butonuna tıklar");
-
+        //6. vendor my account butonuna basar
         //7. vendor Orders butonuna basar
-        pearlyMarketPage.s8sutunOrder.click();
-        JavascriptExecutor jse1 = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);", pearlyMarketPage.s8goToShop);
+        //8. vendor go to shop'a tıklar
+        //9. vendor 5 adet ürün secip tek tek sepete ekler
+        ReusableMethods.besUrunEkle();
         Thread.sleep(1000);
-        extentTest.info("Orders butonuna tıklar");
+        extentTest.info("sepete 5 urun eklendi");
 
-        //8. vendor Go Shop'a tıklar
-        pearlyMarketPage.s8goToShop.click();
+        //10. vendor cart'a tıklar
+        pearlyMarketPage.s8cart.click();
+        extentTest.info("sepete tıklandı");
+
+        //11. vendor wiew Cart'a tıklar
+        WebElement viewCart = pearlyMarketPage.viewCart;
+        ReusableMethods.click(viewCart);
+        extentTest.info("wiew karta tıklandı");
+
+        //12. vendor seçilen urunlerin rakam miktar ve toplam olarak gorunmeli
+        Thread.sleep(3000);
+        Assert.assertTrue(pearlyMarketPage.sepettekiIlkUrunFiyatYazisi.isDisplayed());
         Thread.sleep(1000);
-        Assert.assertTrue(pearlyMarketPage.s8shopYazisi.isDisplayed());
-        extentTest.pass("go shop butonunun gorunurlugu dogrulandi");
+        Assert.assertTrue(pearlyMarketPage.sepettekiIlkUrunAdetYazisi.isDisplayed());
+        Thread.sleep(1000);
+        Assert.assertTrue(pearlyMarketPage.sepettekiIlkUrunToplamFiyatYazisi.isDisplayed());
+        extentTest.pass("urun rakam, miktar ve fiyat bilgilerinin gorunurlugu dogrulandı");
 
 
-        //9. vendor Logout yapar
+        //13. vendor Logout yapar
         ReusableMethods.waitFor(1);
         actions.sendKeys(Keys.HOME).perform();
         ReusableMethods.waitFor(2);
@@ -72,6 +76,5 @@ public class US003_TC0001 extends TestBaseRapor {
         pearlyMarketPage.logOut.click();
 
         Driver.closeDriver();
-
     }
 }

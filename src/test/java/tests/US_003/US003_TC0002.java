@@ -2,6 +2,7 @@ package tests.US_003;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -10,54 +11,58 @@ import pages.S8PearlyMarketPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
 import java.util.List;
 
-public class US003_TC0002 {
-    S8PearlyMarketPage pearlyMarketPage = new S8PearlyMarketPage();
+public class US003_TC0002 extends TestBaseRapor {
+
+    S8PearlyMarketPage pearlyMarketPage;
+    Actions actions;
 
     @Test
     public void testCase0002() throws InterruptedException {
+
+        pearlyMarketPage= new S8PearlyMarketPage();
+        actions=new Actions(Driver.getDriver());
+
+        extentTest = extentReports.createTest("US003 TestCase_0002", "Vendor 5 adet urun ekler");
+
+        //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
+        extentTest.info("url'ye gidildi");
+
+        //2. vendor signin butonuna tıklar
+        //3. vendor gecerli bir username girer
+        //4. vendor gecerli bir password girer
+        //5. vendor sign in butonuna basar
+        ReusableMethods.waitFor(1);
         ReusableMethods.prMrktlogIn();
         Thread.sleep(2000);
-        WebElement myAccount = pearlyMarketPage.myAccountYazisi;
-        //ReusableMethods.waitForVisibility(myAccount, 5);
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);", myAccount);
-        Thread.sleep(1000);
-        pearlyMarketPage.myAccount.click();
-        Thread.sleep(1000);
-        pearlyMarketPage.s8sutunOrder.click();
-        JavascriptExecutor jse1 = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);", pearlyMarketPage.s8goToShop);
-        Thread.sleep(1000);
-        pearlyMarketPage.s8goToShop.click();
-        Thread.sleep(2000);
-        List<WebElement> urunListesi = pearlyMarketPage.s8shopList;
-        System.out.println("urunListesi = " + urunListesi);
+        extentTest.info("sayfaya login olundu");
 
-        int count = 0;
-        int index = 0;
+        //6. vendor My Account butonuna basar
+        //7. vendor Orders butonuna basar
+        //8. vendor Go Shop'a tıklar
+        //9. vendor 5 adet ürün secip tek tek sepete ekler
+        ReusableMethods.besUrunEkle();
+        ReusableMethods.waitFor(1);
+        extentTest.info("Vendor 5 adet urun ekler");
 
-        for (int i = 0; i <= urunListesi.size(); i++) {
-            index = i + 1;
-            WebElement tiklanacakURun = Driver.getDriver().findElement(By.xpath("(//*[@class='product-media'])[" + index + "]"));
-            JavascriptExecutor jse2 = (JavascriptExecutor) Driver.getDriver();
-            jse.executeScript("arguments[0].scrollIntoView(true);", tiklanacakURun);
-            Actions actions = new Actions(Driver.getDriver());
-            actions.moveToElement(tiklanacakURun).perform();
-
-            if (pearlyMarketPage.s8sepetSimge.isDisplayed()) {
-                pearlyMarketPage.s8sepetSimge.click();
-                Thread.sleep(6000);
-            }
-            count = Integer.parseInt(pearlyMarketPage.s8cartCount.getText());
-            if (count==5) {
-                break;
-            }
-        }
+        //10. vendor 5 adet ürün eklendigini dogrular
         Assert.assertEquals(pearlyMarketPage.s8cartCount.getText(), "5");
+        extentTest.pass("Vendor 5 adet urun eklendiğini dogrular");
+
+        //11. vendor Logout yapar
+        ReusableMethods.waitFor(1);
+        actions.sendKeys(Keys.HOME).perform();
+        ReusableMethods.waitFor(2);
+        pearlyMarketPage.s8signOut.click();
+        ReusableMethods.waitFor(2);
+        ReusableMethods.scrollIntoView(pearlyMarketPage.logOut);
+        ReusableMethods.waitFor(1);
+        pearlyMarketPage.logOut.click();
+
         Driver.closeDriver();
     }
 }

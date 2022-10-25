@@ -5,9 +5,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.EPearlyMarketPage;
 import pages.PearlyMarketPage;
+import pages.S8PearlyMarketPage;
 
 import java.io.File;
 import java.io.IOException;
@@ -145,7 +147,7 @@ public class ReusableMethods {
         }
     }
 
-    //======================LOGİN======================================
+    //======================LOGİN======================================//
     public static void prMrktlogIn(){
 
         PearlyMarketPage pearlyMarketPage = new PearlyMarketPage();
@@ -162,7 +164,7 @@ public class ReusableMethods {
         ReusableMethods.waitForVisibility(signOut, 5);
     }
 
-    //======================STORE_MANAGER======================================
+    //======================STORE_MANAGER======================================//
     public static void prMrktstoreManager() {
 
         PearlyMarketPage pearlyMarketPage = new PearlyMarketPage();
@@ -207,9 +209,10 @@ public class ReusableMethods {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].value='"+text+"';", element);
     }
+
+    //========PearlyDriver=====//
     public static void PearlyDriver()  {
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
-
         EPearlyMarketPage pearlyMarketPage = new EPearlyMarketPage();
         pearlyMarketPage.signInButonu.click();
         pearlyMarketPage.usernameButonu.sendKeys("team10.batch81@gmail.com");
@@ -226,4 +229,77 @@ public class ReusableMethods {
         pearlyMarketPage.addNewButonu.click();
 
     }
+
+    //============= 5 ADET URUN EKLEME =================//
+
+    public static void besUrunEkle(){
+        S8PearlyMarketPage pearlyMarketPage = new S8PearlyMarketPage();
+        WebElement myAccount = pearlyMarketPage.myAccountYazisi;
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].scrollIntoView(true);", myAccount);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        pearlyMarketPage.myAccount.click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        pearlyMarketPage.s8sutunOrder.click();
+
+        jse.executeScript("arguments[0].scrollIntoView(true);", pearlyMarketPage.s8goToShop);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        pearlyMarketPage.s8goToShop.click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        List<WebElement> urunListesi = pearlyMarketPage.s8shopList;
+
+
+        int count = 0;
+        int index = 0;
+        Actions actions = new Actions(Driver.getDriver());
+        for (int i = 0; i <= urunListesi.size(); i++) {
+            index = i + 1;
+            WebElement tiklanacakURun = Driver.getDriver().findElement(By.xpath("(//*[@class='product-media'])[" + index + "]"));
+
+            jse.executeScript("arguments[0].scrollIntoView(true);", tiklanacakURun);
+
+            actions.moveToElement(tiklanacakURun).perform();
+
+            if (pearlyMarketPage.s8sepetSimge.isDisplayed()) {
+                pearlyMarketPage.s8sepetSimge.click();
+
+                try {
+                    Thread.sleep(7000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            count = Integer.parseInt(pearlyMarketPage.s8cartCount.getText());
+            if (count == 5) {
+                break;
+            }
+
+        }
+        actions.sendKeys(Keys.HOME).perform();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        ReusableMethods.waitForClickablility(pearlyMarketPage.home, 5);
+        pearlyMarketPage.home.click();
+    }
+
 }

@@ -18,27 +18,42 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class US015_TC001 extends TestBaseRapor {
-    C3PearlyMarketPage pearlyMarketPage = new C3PearlyMarketPage();
-    Actions actions= new Actions(Driver.getDriver());
+    C3PearlyMarketPage pearlyMarketPage;
+    Actions actions;
     Asserts asserts;
-    Faker faker=new Faker();
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+    Faker faker;
+    WebDriverWait wait;
     String url;
     String couponCode;
 
     @Test (priority = 1)
     public void testLogin() throws InterruptedException, IOException {
+        pearlyMarketPage = new C3PearlyMarketPage();
+        actions = new Actions(Driver.getDriver());
+        faker =new Faker();
+        wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+
+
         extentTest = extentReports.createTest("testLogin", "Web automation");
         //Vendor basarili bir sekilde sign in olur
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         ReusableMethods.prMrktlogIn();
         extentTest.pass("Basarili login yapildi");
+        Driver.closeDriver();
     }
 
     @Test(priority = 2)
     public void testLimitsCoupon() throws InterruptedException {
+        pearlyMarketPage = new C3PearlyMarketPage();
+        actions = new Actions(Driver.getDriver());
+        faker =new Faker();
+        wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+
+
         extentTest = extentReports.createTest("testLimitsCoupon", "Web automation");
         //Store manager bolumune tiklar
+        Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
+        ReusableMethods.prMrktlogIn();
         ReusableMethods.prMrktstoreManager();
         extentTest.info("Store manager bolumune tiklar");
         //Coupons butonuna tiklar
