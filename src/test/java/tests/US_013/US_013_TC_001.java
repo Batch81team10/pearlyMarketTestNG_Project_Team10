@@ -58,7 +58,7 @@ public class US_013_TC_001 extends TestBaseRapor {
         extentTest.info("indirimin degeri girildi");
         // 9.Coupon expiry date bolumune guncel tarih veya sonrasi bir deger  girer
         ReusableMethods.click(pm.adate);
-        pm.adate.sendKeys("2022-10-30");
+        pm.adate.sendKeys(ConfigReader.getProperty("validDate"));
         extentTest.info("son gecerlilij tarihi belirlendi");
         //10.Kupon ücretsiz gönderim sağlıyorsa Free shipping kutucugunu isaretller
         WebElement free =pm.afreeShipping;
