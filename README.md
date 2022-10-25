@@ -31,7 +31,7 @@
 <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a>
 <a href="https://www.selenium.com" target="_blank" rel="noreferrer"> <img src="https://camo.githubusercontent.com/4b95df4d6ca7a01afc25d27159804dc5a7d0df41d8131aaf50c9f84847dfda21/68747470733a2f2f73656c656e69756d2e6465762f696d616765732f73656c656e69756d5f6c6f676f5f7371756172655f677265656e2e706e67" alt="Selenium" width="30" height="30"/> </a>
 ![TestNG](https://user-images.githubusercontent.com/115616411/197864126-adac2858-a052-425e-9d13-ec692783b81c.png)
-
+![Maven](https://user-images.githubusercontent.com/115616411/197864649-707967e0-2440-4d8e-825f-808cb90461cd.png)
 
 
 
@@ -41,9 +41,7 @@
 <p align="left >
 
 <a href="https://www.intelj.com" target="_blank" rel="noreferrer"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQak-N8W03mK25slV1lwM80i0y1obRPPJOaLA&usqp=CAU" alt="intelj" width="80" height="40"/> </a>
-
 ![image](https://user-images.githubusercontent.com/115616411/197862361-2d5d8a31-ed45-475e-8377-fb8e446acab4.png)
-![Maven](https://user-images.githubusercontent.com/115616411/197864649-707967e0-2440-4d8e-825f-808cb90461cd.png)
 ![github](https://user-images.githubusercontent.com/115616411/197865653-f26e8795-be5e-449f-a00a-1bf2caa3f940.png)
 
 
