@@ -43,4 +43,5 @@
 
 
 <a href="https://www.jira.com" target="_blank" rel="noreferrer"> <img src="https://yardimmasasi.atilim.edu.tr/images/atlassian-jira-logo-large.png" alt="Jira" width="80" height="40"/> </a>
+<img width="200" height="175" src="https://www.ambient-it.net/wp-content/uploads/2022/04/Logo-Jira-200x175-2.png" alt="Logo Formation Jira" title="" class="wp-image-48324 entered lazyloaded" data-lazy-src="https://www.ambient-it.net/wp-content/uploads/2022/04/Logo-Jira-200x175-2.png" data-ll-status="loaded">
 
