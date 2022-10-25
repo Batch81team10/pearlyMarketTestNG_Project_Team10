@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.EPearlyMarketPage;
 import pages.PearlyMarketPage;
 
 import java.io.File;
@@ -206,5 +207,23 @@ public class ReusableMethods {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].value='"+text+"';", element);
     }
+    public static void PearlyDriver()  {
+        Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
 
+        EPearlyMarketPage pearlyMarketPage = new EPearlyMarketPage();
+        pearlyMarketPage.signInButonu.click();
+        pearlyMarketPage.usernameButonu.sendKeys("team10.batch81@gmail.com");
+        pearlyMarketPage.passwordButonu.sendKeys("testng1081");
+        pearlyMarketPage.signbutonu.click();
+        ReusableMethods.waitFor(5);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
+        ReusableMethods.waitFor(3);
+        pearlyMarketPage.myAccount.click();
+        pearlyMarketPage.storeManagerButonu.click();
+        ReusableMethods.waitFor(3);
+        ReusableMethods.click(pearlyMarketPage.productButonu);
+        pearlyMarketPage.addNewButonu.click();
+
+    }
 }
