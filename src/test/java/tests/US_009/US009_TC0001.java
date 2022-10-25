@@ -6,11 +6,12 @@ import org.testng.annotations.Test;
 import pages.EPearlyMarketPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class US009_TC0001 {
+public class US009_TC0001 extends TestBaseRapor {
 
    EPearlyMarketPage pearlyMarketPage;
    @Test

@@ -8,12 +8,13 @@ import org.testng.annotations.Test;
 import pages.EPearlyMarketPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class US009_TC0003 {
+public class US009_TC0003 extends TestBaseRapor {
     EPearlyMarketPage pearlyMarketPage;
     @Test
     public void hacimTeslimatPozitifTest () throws InterruptedException, IOException {

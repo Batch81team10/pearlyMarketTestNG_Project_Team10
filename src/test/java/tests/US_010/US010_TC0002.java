@@ -3,12 +3,13 @@ package tests.US_010;
 import org.testng.annotations.Test;
 import pages.EPearlyMarketPage;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class US010_TC0002 {
+public class US010_TC0002 extends TestBaseRapor {
     EPearlyMarketPage pearlyMarketPage;
 
     @Test
-    public void sizeMenuTest() {
+    public void sizeMenuTest()  {
         ReusableMethods.PearlyDriver();
 
         pearlyMarketPage = new EPearlyMarketPage();

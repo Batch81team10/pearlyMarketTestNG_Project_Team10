@@ -5,15 +5,18 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.EPearlyMarketPage;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class US007_TC0001 {
+public class US007_TC0001 extends TestBaseRapor {
     EPearlyMarketPage pearlyMarketPage;
 
     @Test
     public void brandsSecilir() {
+        extentTest = extentReports.createTest("Marka testi","Belirtilen markalara tiklanip tiklanamadigi test edilir");
         ReusableMethods.PearlyDriver();
         pearlyMarketPage = new EPearlyMarketPage();
 
@@ -35,6 +38,11 @@ public class US007_TC0001 {
 
         }
         System.out.println(sayac);
+        extentTest.info("Belirtilen markalarin gorunurlugu test edildi");
+        extentTest.info("Belirtilen markalara tiklanabildigi test edildi");
+
+        extentReports.flush();
     }
+
 
 }
