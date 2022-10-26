@@ -8,17 +8,20 @@ import org.testng.annotations.Test;
 import pages.EPearlyMarketPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class US009_TC0003 {
+public class US009_TC0003 extends TestBaseRapor {
     EPearlyMarketPage pearlyMarketPage;
     @Test
     public void hacimTeslimatPozitifTest () throws InterruptedException, IOException {
+        extentTest = extentReports.createTest("Hacim ve teslimat pozitif test","Pozitif değerlerle hacim ve ne kadar surede teslimat yapalıcağı belirlenmeli");
         ReusableMethods.PearlyDriver();
-
+        //Add product bölümündeki tüm ayrıntılar doldurur
+        extentTest.info("Add product bölümündeki tüm ayrıntılar doldurur");
         pearlyMarketPage=new EPearlyMarketPage();
         pearlyMarketPage.productTitleButonu.sendKeys("tablo");
         pearlyMarketPage.resimeklemeButonu.click();
@@ -35,22 +38,27 @@ public class US009_TC0003 {
 
         ReusableMethods.click(pearlyMarketPage.coksatanlar);
         ////////////////////////////////////////////////////////////////
-        //Add product bölümündeki tüm ayrıntılar doldurur
+
         //Shipping butonuna tıklar
+        extentTest.info("Shipping butonuna tıklar");
         ReusableMethods.click(pearlyMarketPage.Shippingbutonu);
         //Shipping bölümünün açıldığını test eder
+        extentTest.info("Shipping bölümünün açıldığını test eder");
         String expectedTitle = "Weight (kg)";
         ReusableMethods.waitFor(5);
         String actualTitle = pearlyMarketPage.weightButonuTitle.getText();
         ReusableMethods.waitFor(3);
         Assert.assertEquals(expectedTitle,actualTitle);
         //Weight(kg) bölümüne pozitif sayı değerleri girer
+        extentTest.info("Weight(kg) bölümüne pozitif sayı değerleri girer");
         pearlyMarketPage.weightButonu.sendKeys("35");
         //Length, Width, Heigth bölümüne pozitif sayı değerler girer
+        extentTest.info("Length, Width, Heigth bölümüne pozitif sayı değerler girer");
         pearlyMarketPage.length.sendKeys("20");
         pearlyMarketPage.Width.sendKeys("30");
         pearlyMarketPage.Heigth.sendKeys("15");
         //Processing Time menüdeki seçeneklerden her biri tek tek seçilebildiğini test eder
+        extentTest.info("Processing Time menüdeki seçeneklerden her biri tek tek seçilebildiğini test eder");
         Select select=new Select(pearlyMarketPage.ProcessingTime);
         List<WebElement> tumSecenekler= select.getOptions();
 
@@ -81,9 +89,9 @@ public class US009_TC0003 {
         ReusableMethods.waitFor(4);
         ReusableMethods.getScreenshot("Hacim pozitif Test Sonuc");
         System.out.println(pearlyMarketPage.WigthVeLengthDegeri.get(1).getText());
-
+        extentTest.info("hacim alanını pozitif deger girilebildiğini  test eder");
         Assert.assertEquals(pearlyMarketPage.WigthVeLengthDegeri.get(1).getText(),"20 × 30 × 15 cm");
-
+        extentReports.flush();
     }
 
 }

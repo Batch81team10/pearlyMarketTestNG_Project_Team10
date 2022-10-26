@@ -170,4 +170,10 @@ public class EPearlyMarketPage {
 
     @FindBy(xpath = "//tbody/tr//td[6][1]")
     public  WebElement inStock;
+
+    @FindBy(xpath = "//*[@title='yesil']")
+    public  WebElement yesilRenk;
+
+    @FindBy(xpath = "//*[@title='x large']")
+    public  WebElement xlarge;
 }
