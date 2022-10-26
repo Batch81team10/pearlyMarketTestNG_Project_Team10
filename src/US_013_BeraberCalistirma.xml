@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="belirliPageCalıstırma">
+    <test name="paket">
+        <packages>
+            <package name="tests.US_013"></package>
+        </packages>
+    </test>
+</suite>
