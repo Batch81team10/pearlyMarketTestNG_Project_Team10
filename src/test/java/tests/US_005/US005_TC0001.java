@@ -17,13 +17,14 @@ import java.awt.event.KeyEvent;
 
 public class US005_TC0001 extends TestBaseRapor {
 
-    BPearlyMarketPage pearlymarketPage = new BPearlyMarketPage();
+    BPearlyMarketPage pearlymarketPage;
     Actions actions;
     WebElement iframe;
 
 
     @Test
     public void US005_TC001() throws AWTException {
+        pearlymarketPage = new BPearlyMarketPage();
         extentTest = extentReports.createTest("Urun ekleme", "Urun listesine yeni ürün eklenip eklenemedigi test edilir");
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         ReusableMethods.prMrktlogIn();
@@ -178,7 +179,7 @@ public class US005_TC0001 extends TestBaseRapor {
 
         ReusableMethods.waitForVisibility(pearlymarketPage.b2UrunEklendiText,6);
         Assert.assertTrue(pearlymarketPage.b2UrunEklendiText.isDisplayed());
-        extentTest.info("Urunun eklendigi goruldu");
+        extentTest.pass("Urunun eklendigi goruldu");
 
         extentReports.flush();
 
