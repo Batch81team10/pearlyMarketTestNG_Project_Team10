@@ -52,7 +52,7 @@ public class US003_TC0002 extends TestBaseRapor {
         //10. vendor 5 adet ürün eklendigini dogrular
         Assert.assertEquals(pearlyMarketPage.s8cartCount.getText(), "5");
         extentTest.pass("Vendor 5 adet urun eklendiğini dogrular");
-
+/*
         //11. vendor Logout yapar
         ReusableMethods.waitFor(1);
         actions.sendKeys(Keys.HOME).perform();
@@ -63,6 +63,8 @@ public class US003_TC0002 extends TestBaseRapor {
         ReusableMethods.waitFor(1);
         pearlyMarketPage.logOut.click();
 
+
+ */
         Driver.closeDriver();
     }
 }
