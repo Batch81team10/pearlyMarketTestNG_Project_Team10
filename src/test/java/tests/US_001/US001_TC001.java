@@ -7,11 +7,11 @@ import utilities.Driver;
 
 public class US001_TC001 {
 
-     Y9PearlyMarketPage pearlyMarketPage=new Y9PearlyMarketPage();
+     Y9PearlyMarketPage pearlyMarketPage;
 
     @Test
     public void US001_TC001() {
-
+        pearlyMarketPage=new Y9PearlyMarketPage();
         //1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
 

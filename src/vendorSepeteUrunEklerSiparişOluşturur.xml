@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Sepete urun ekleyip sipariş oluşturma">
-    <test name="Sepette ürün ekle sipariş oluştur">
-        <classes>
-            <class name="tests.US_003.US003_TC0002"/>
-            <class name="tests.US_003.US003_TC0005"/>
-        </classes>
-    </test>
-</suite>
