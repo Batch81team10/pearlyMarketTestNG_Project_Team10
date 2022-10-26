@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="istenen packagelari calistirma">
+    <test name="package">
+        <packages>
+            <package name="tests.US_014"/>
+            <package name="tests.US_015"/>
+        </packages>
+    </test>
+</suite>
