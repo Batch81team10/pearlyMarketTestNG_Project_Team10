@@ -6,18 +6,22 @@ import org.testng.annotations.Test;
 import pages.EPearlyMarketPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class US009_TC0001 {
+public class US009_TC0001 extends TestBaseRapor {
 
    EPearlyMarketPage pearlyMarketPage;
    @Test
     public void kiloBoyutPozitifTest() throws IOException {
+    extentTest = extentReports.createTest("kilo ve boyut pozitif Test","Kilo ve Boyut pozitif değerler girilerek belirlenmeli");
       ReusableMethods.PearlyDriver();
        //Add product bölümündeki tüm ayrıntılar doldurur
-       pearlyMarketPage=new EPearlyMarketPage();
+    extentTest.info("Add product bölümündeki tüm ayrıntılar doldurur");
+
+    pearlyMarketPage=new EPearlyMarketPage();
        pearlyMarketPage.productTitleButonu.sendKeys("tablo");
        pearlyMarketPage.resimeklemeButonu.click();
        ReusableMethods.click(pearlyMarketPage.mediaLibrary);
@@ -34,15 +38,23 @@ public class US009_TC0001 {
        ReusableMethods.click(pearlyMarketPage.coksatanlar);
 /////////////////////////////////////////////////////////////////////////
 
-       //Add product bölümündeki tüm ayrıntılar doldurur
+
        //Shipping butonuna tıklar
-       ReusableMethods.click(pearlyMarketPage.Shippingbutonu);
+    extentTest.info("Shipping butonuna tıklar");
+
+    ReusableMethods.click(pearlyMarketPage.Shippingbutonu);
       //Shipping bölümünün açıldığını test eder
-       Assert.assertTrue(pearlyMarketPage.weightButonuTitle.isDisplayed());
+    extentTest.info("Shipping bölümünün açıldığını test eder");
+
+    Assert.assertTrue(pearlyMarketPage.weightButonuTitle.isDisplayed());
       //Weight(kg) bölümüne  sayı değeri girer
-       pearlyMarketPage.weightButonu.sendKeys("35");
+    extentTest.info("Weight(kg) bölümüne  sayı değeri girer");
+
+    pearlyMarketPage.weightButonu.sendKeys("35");
       //Length bölümüne pozitif sayı değeri girer
-       pearlyMarketPage.length.sendKeys("20");
+    extentTest.info("Length bölümüne pozitif sayı değeri girer");
+
+    pearlyMarketPage.length.sendKeys("20");
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -66,6 +78,10 @@ public class US009_TC0001 {
     System.out.println(pearlyMarketPage.WigthVeLengthDegeri.get(0).getText());
     Assert.assertEquals(pearlyMarketPage.WigthVeLengthDegeri.get(0).getText(),"35 kg");
     Assert.assertEquals(pearlyMarketPage.WigthVeLengthDegeri.get(1).getText(),"20 cm");
+
+    extentTest.info("pozitif değerler girilebildiğini test eder");
+
+    extentReports.flush();
        }
 
 }
