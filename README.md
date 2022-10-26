@@ -38,7 +38,6 @@
 
 
 
-
 </p>
 <hr/>
 <p align="left >
@@ -47,13 +46,14 @@
 ![image](https://user-images.githubusercontent.com/115616411/197862361-2d5d8a31-ed45-475e-8377-fb8e446acab4.png)
 ![github](https://user-images.githubusercontent.com/115616411/197865653-f26e8795-be5e-449f-a00a-1bf2caa3f940.png)
 
+##Tüm katkıda bulunanlara teşekkürler❤
 </p>
 <hr/>
 <p align="left >
 
-##Tüm katkıda bulunanlara teşekkürler❤
-<a href="https://github.com/E-tepecik" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/113845829/198003408-f9dc0239-f3cf-495a-b133-5e182c9f4c48.png" alt="github" width="80" height="40"/> </a>
-https://github.com/E-tepecik
+
+<a href="https://github.com/E-tepecik" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/113845829?s=48&v=4"" alt="github" width="80" height="40"/> </a>
+
 </p>
 <hr/>
 <p align="left >
