@@ -52,7 +52,7 @@
 <p align="left >
 
 ##Tüm katkıda bulunanlara teşekkürler❤
-<a href="https://www.github.com" target="_blank" rel="noreferrer"> <img src="https://github.com/E-tepecik" alt="github" width="80" height="40"/> </a>
+<a href="https://github.com/E-tepecik" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/113845829/198003408-f9dc0239-f3cf-495a-b133-5e182c9f4c48.png" alt="github" width="80" height="40"/> </a>
 https://github.com/E-tepecik
 </p>
 <hr/>
