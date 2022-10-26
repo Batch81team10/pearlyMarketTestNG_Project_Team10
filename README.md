@@ -23,7 +23,6 @@
 
 
 
-https://roadmap.sh/qa
 
 
 
@@ -52,4 +51,9 @@ https://roadmap.sh/qa
 <hr/>
 <p align="left >
 
-Tüm katkıda bulunanlara teşekkürler❤
+##Tüm katkıda bulunanlara teşekkürler❤
+<a href="https://www.github.com" target="_blank" rel="noreferrer"> <img src="https://github.com/E-tepecik" alt="github" width="80" height="40"/> </a>
+https://github.com/E-tepecik
+</p>
+<hr/>
+<p align="left >
