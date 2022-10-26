@@ -19,12 +19,13 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class US014_TC001 extends TestBaseRapor {
-    C3PearlyMarketPage pearlyMarketPage = new C3PearlyMarketPage();
+    C3PearlyMarketPage pearlyMarketPage ;
     Actions actions= new Actions(Driver.getDriver());
 
 
     @Test(priority = 1)
     public void testLogin() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testLogin", "Web automation");
         //Vendor basarili bir sekilde sign in olur
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
@@ -36,6 +37,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 2)
     public void testMinMaxSpend()  {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testMinMaxSpend", "Web automation");
 
         //Store manager bolumune tiklar
@@ -71,6 +73,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 9)
     public void testMinSpendTextBoxIsNotEmpty() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testMinSpendTextBoxIsNotEmpty");
 
         Assert.assertTrue(Driver.getDriver().getPageSource().contains(ConfigReader.getProperty("minSpend")));
@@ -80,6 +83,7 @@ public class US014_TC001 extends TestBaseRapor {
     }
     @Test(priority = 10)
     public void testMaxSpendTextBoxIsNotEmpty() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testMaxSpendTextBoxIsNotEmpty");
 
         Assert.assertTrue(Driver.getDriver().getPageSource().contains(ConfigReader.getProperty("maxSpend")));
@@ -90,6 +94,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 4)
     public void testCheckBoxClick() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testCheckBoxClick");
 
         //individual use only' seçeneğine tıklar
@@ -102,6 +107,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 11)
     public void testIndividualUseIsSelected() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testIndividualUseIsSelected", "Web automation");
 
         Assert.assertTrue(pearlyMarketPage.c3IndividualUse.isSelected());
@@ -111,6 +117,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 5)
     public void testExcludeProducts()  {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testExcludeProducts");
 
         ReusableMethods.sendText(pearlyMarketPage.c3ExcludeProducts,"Air frayer (HD9650)");
@@ -121,6 +128,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 12)
     public void testExcludeProductsIsListed() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testExcludeProductsIsListed");
 
         Assert.assertTrue(pearlyMarketPage.c3ExcludeProducts.getText().contains("Air"));
@@ -130,6 +138,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 6)
     public void testExcludeCategories()  {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testExcludeCategories");
 
         //PearlyMarketPage.c3ExcludeCategories.sendKeys("For Men");
@@ -139,6 +148,7 @@ public class US014_TC001 extends TestBaseRapor {
     }
     @Test(priority = 13)
     public void testExcludeCategoriesIsListed() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testExcludeCategoriesIsListed");
 
         Assert.assertTrue(pearlyMarketPage.c3ExcludeCategories.getText().contains("Bracelet"));
@@ -150,6 +160,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 7)
     public void testSubmit() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testSubmit");
 
         ReusableMethods.click(pearlyMarketPage.c3Submit);
@@ -160,6 +171,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 3)
     public void testMaxGreaterThanMinSpend() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testMaxGreaterThanMinSpend");
 
         int max= Integer.parseInt(pearlyMarketPage.c3MaxSpend.getText());
@@ -174,6 +186,7 @@ public class US014_TC001 extends TestBaseRapor {
 
     @Test(priority = 8)
     public void testPublishedMessage() {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testPublishedMessage");
 
         Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[text()='Coupon Successfully Published.']")).isDisplayed());

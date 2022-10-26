@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.C3PearlyMarketPage;
-import pages.PearlyMarketPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -18,8 +17,8 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class US015_TC001 extends TestBaseRapor {
-    C3PearlyMarketPage pearlyMarketPage = new C3PearlyMarketPage();
-    Actions actions= new Actions(Driver.getDriver());
+    C3PearlyMarketPage pearlyMarketPage;
+    Actions actions;
     Asserts asserts;
     Faker faker=new Faker();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
@@ -28,6 +27,7 @@ public class US015_TC001 extends TestBaseRapor {
 
     @Test (priority = 1)
     public void testLogin() throws InterruptedException, IOException {
+        pearlyMarketPage = new C3PearlyMarketPage();
         extentTest = extentReports.createTest("testLogin", "Web automation");
         //Vendor basarili bir sekilde sign in olur
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
@@ -37,6 +37,8 @@ public class US015_TC001 extends TestBaseRapor {
 
     @Test(priority = 2)
     public void testLimitsCoupon() throws InterruptedException {
+        pearlyMarketPage = new C3PearlyMarketPage();
+        actions= new Actions(Driver.getDriver());
         extentTest = extentReports.createTest("testLimitsCoupon", "Web automation");
         //Store manager bolumune tiklar
         ReusableMethods.prMrktstoreManager();
