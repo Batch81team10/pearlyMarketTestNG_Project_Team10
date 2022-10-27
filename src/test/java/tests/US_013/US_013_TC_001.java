@@ -21,25 +21,30 @@ public class US_013_TC_001 extends TestBaseRapor {
 
     @Test
 
-    public void cuopponPersentage() throws InterruptedException {
+    public void aCuopponPersentage() throws InterruptedException {
         extentTest = extentReports.createTest("couppon testi", "olusturulan couppon'un kaydi");
         pm = new APearlyMarketPage();
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         //1. vendor basarili bir sekilde sign in olur
-        Thread.sleep(2000);
+        ReusableMethods.waitFor(2);
         ReusableMethods.prMrktlogIn();
         extentTest.info("log in yapildi");
         // 2.MY ACCOUNT secenegine tiklar
         // 3.store manager bolumune tiklar
+        ReusableMethods.waitFor(2);
         ReusableMethods.prMrktstoreManager();
         extentTest.info("store manager'a tiklandi");
         //4.coupons bolumunden "add new" secenegini secer
         actions = new Actions(Driver.getDriver());
         WebElement couppon = pm.acoupons;
         WebElement addNew = pm.aaddNewLink;
+        ReusableMethods.waitFor(2);
         actions.sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).perform();
-        actions.moveToElement(couppon).click(addNew).perform();
+        ReusableMethods.waitFor(2);
+        actions.moveToElement(couppon).perform();
+        ReusableMethods.waitFor(2);
+        actions.click(addNew).perform();
         extentTest.info("couppon olusturmak icin add new secenegine tiklandi");
         // 5.code butonuna  sayisal deger ve harf yazar
         pm.acode.sendKeys(ConfigReader.getProperty("coupponName1"));
@@ -50,6 +55,7 @@ public class US_013_TC_001 extends TestBaseRapor {
         // 7.Discount Type menusundeki seceneklerden "percentage discount'u" secer
         WebElement discountType = pm.adiscountType;
         Select options = new Select(discountType);
+        ReusableMethods.waitFor(2);
         options.selectByIndex(0);
         extentTest.info("indirim turu secildi");
         //8.Coupon Amount butonuna 1-100 arasinda bir rakam girer
@@ -69,6 +75,7 @@ public class US_013_TC_001 extends TestBaseRapor {
         ReusableMethods.click(show);
         extentTest.info("anasayfada gosterme kutucugu isaretlendi");
         // 12.submit'e basar
+        ReusableMethods.waitFor(2);
         WebElement submit=pm.asubmit;
         ReusableMethods.click(submit);
         extentTest.info("couppon kaydedildi");
@@ -76,7 +83,9 @@ public class US_013_TC_001 extends TestBaseRapor {
 
         //13.kazan25 isimli kuponun kaydedildigini dogrular
         ReusableMethods.click(pm.acoupons);
+        ReusableMethods.waitFor(2);
         List<WebElement> codeCells=Driver.getDriver().findElements(By.xpath("//tbody//td[1]"));
+        ReusableMethods.waitFor(2);
         String actualAmount=codeCells.get(0).getText();
         String expectedAmount="kazan25";
         Assert.assertEquals(actualAmount,expectedAmount);

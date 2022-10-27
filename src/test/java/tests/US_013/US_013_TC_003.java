@@ -19,13 +19,15 @@ public class US_013_TC_003 {
     Actions actions;
 
     @Test
-    public void cuopponInvalidAmount() throws InterruptedException {
+    public void cCuopponInvalidAmount() throws InterruptedException {
         pm = new APearlyMarketPage();
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         //1. vendor basarili bir sekilde sign in olur
+        ReusableMethods.waitFor(2);
         ReusableMethods.prMrktlogIn();
         //  2.MY ACCOUNT secenegine tiklar
         // 3.store manager bolumune tiklar
+        ReusableMethods.waitFor(2);
         ReusableMethods.prMrktstoreManager();
         //4.coupons bolumunden "add new" secenegini secer
         actions = new Actions(Driver.getDriver());
@@ -33,7 +35,9 @@ public class US_013_TC_003 {
         WebElement addNew = pm.aaddNewLink;
         actions.sendKeys(Keys.ARROW_DOWN).
                 sendKeys(Keys.ARROW_DOWN).perform();
-        actions.moveToElement(couppon).click(addNew).perform();
+        actions.moveToElement(couppon).perform();
+        ReusableMethods.waitFor(2);
+        actions.click(addNew).perform();
         //5.code butonuna  sayisal deger ve harf yazar
         pm.acode.sendKeys(ConfigReader.getProperty("coupponName3"));
         //6.kuponu turune gore aciklar
@@ -41,6 +45,7 @@ public class US_013_TC_003 {
         //7.Discount Type menusundeki seceneklerden "percentage discount'u" secer
         WebElement discountType = pm.adiscountType;
         Select options = new Select(discountType);
+        ReusableMethods.waitFor(2);
         options.selectByIndex(0);
         //8.Coupon Amount butonuna 100'den buyuk bir deger girer
         pm.aamount.clear();
@@ -55,14 +60,17 @@ public class US_013_TC_003 {
         WebElement show = pm.ashow;
         ReusableMethods.click(show);
         //12.submit'e basar
+        ReusableMethods.waitFor(2);
         WebElement submit = pm.asubmit;
         ReusableMethods.click(submit);
         //13.girilen amount degerinin kaydedilmedigini dogrular
         ReusableMethods.click(pm.acoupons);
+        ReusableMethods.waitFor(2);
         List<WebElement> amountCells = Driver.getDriver().findElements(By.xpath("//tbody//td[3]"));
-        Thread.sleep(2000);
+        ReusableMethods.waitFor(2);
         String actualAmount = amountCells.get(0).getText();
         String expectedAmount = "0";
         Assert.assertEquals(actualAmount, expectedAmount);
+        Driver.closeDriver();
     }
 }
