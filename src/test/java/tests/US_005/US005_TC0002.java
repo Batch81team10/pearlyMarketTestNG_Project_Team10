@@ -15,13 +15,14 @@ import java.awt.event.KeyEvent;
 
 public class US005_TC0002 {
 
-    BPearlyMarketPage pearlyMarketPage = new BPearlyMarketPage();
+    BPearlyMarketPage pearlyMarketPage;
     Select select;
 
     Actions actions;
 
     @Test
     public void US005_TC0002() throws AWTException, InterruptedException {
+        pearlyMarketPage = new BPearlyMarketPage();
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         ReusableMethods.prMrktlogIn();
         ReusableMethods.waitFor(5);

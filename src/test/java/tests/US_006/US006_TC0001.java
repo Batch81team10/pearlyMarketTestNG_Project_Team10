@@ -10,10 +10,11 @@ import utilities.TestBaseRapor;
 
 
 public class US006_TC0001 extends TestBaseRapor {
-    BPearlyMarketPage pearlyMarketPage = new BPearlyMarketPage();
+    BPearlyMarketPage pearlyMarketPage;
 
     @Test
     public void US006_TC0001() {
+        pearlyMarketPage = new BPearlyMarketPage();
         extentTest = extentReports.createTest("Kategori testi","Tum kategorilere tiklanip tiklanamadigi test edilir");
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
         ReusableMethods.prMrktlogIn();
@@ -42,7 +43,7 @@ public class US006_TC0001 extends TestBaseRapor {
        // 5-Categories alanından seçim yapılabildiğini onaylar
         pearlyMarketPage.b2ProductCategoriesClickButtonList.forEach(t-> ReusableMethods.click(t));
         pearlyMarketPage.b2ProductCategoriesClickButtonList.forEach(t-> Assert.assertTrue(t.isSelected()));
-        extentTest.info("Tum kategorilere tiklanabildigi test edildi");
+        extentTest.pass("Tum kategorilere tiklanabildigi test edildi");
 
         extentReports.flush();
 

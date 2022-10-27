@@ -1,10 +1,14 @@
 # pearlyMarketTestNG_Project_Team10
+
+![image](https://user-images.githubusercontent.com/113845829/197849522-44900b39-f9ad-4e01-ba95-229ae8904b5c.png)
+
+
 ## E-Ticaret sektörüne yönelik olan projemizde Pearly Market web sayfasının satıcı rollü üzerinden denetlenmesi ve  UI testler üzerinden test edilmesi amaçlanmiştir
 ## Temel olarak satıcının siteye kayit olabilmesi, ürün özelliklerini belirleyip ürün ekleyebilmesi, kupon olusturabilmesi, müşteriye ait bilgileri görebilmesi ve müşteri ekleyebilmesi , geri iade planı oluşturabilmesi, ürün ve satış ile  ilgili detayları inceleyebilmesi  işlemleri yapilmiştir.
 
 <hr/>
 
-![image](https://user-images.githubusercontent.com/113845829/197849522-44900b39-f9ad-4e01-ba95-229ae8904b5c.png)
+
 ![image](https://user-images.githubusercontent.com/113845829/197849656-f7a5f977-4221-4a9d-9ee0-569628219478.png)
 ![image](https://user-images.githubusercontent.com/113845829/197850071-a9c2bc7c-4188-4261-ba5a-b874ad18b02e.png)
 
@@ -16,7 +20,6 @@
 ### VENDOR
 
 ![image](https://user-images.githubusercontent.com/113845829/197849250-3d516fe3-efeb-4d6f-a2e0-c20deec27fb7.png)
-
 
 
 
@@ -35,7 +38,6 @@
 
 
 
-
 </p>
 <hr/>
 <p align="left >
@@ -44,4 +46,14 @@
 ![image](https://user-images.githubusercontent.com/115616411/197862361-2d5d8a31-ed45-475e-8377-fb8e446acab4.png)
 ![github](https://user-images.githubusercontent.com/115616411/197865653-f26e8795-be5e-449f-a00a-1bf2caa3f940.png)
 
+##Tüm katkıda bulunanlara teşekkürler❤
+</p>
+<hr/>
+<p align="left >
 
+
+<a href="https://github.com/E-tepecik" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/113845829?s=48&v=4"" alt="github" width="80" height="40"/> </a>
+
+</p>
+<hr/>
+<p align="left >

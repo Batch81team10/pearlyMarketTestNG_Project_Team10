@@ -10,11 +10,14 @@ import utilities.ReusableMethods;
 
 public class US012_TC002 {
 
-    Y9PearlyMarketPage pearlyMarketPage=new Y9PearlyMarketPage();
-    Actions actions=new Actions(Driver.getDriver());
+    Y9PearlyMarketPage pearlyMarketPage;
+    Actions actions;
 
     @Test
     public void US012_TC002() {
+
+        pearlyMarketPage=new Y9PearlyMarketPage();
+        actions=new Actions(Driver.getDriver());
 
         //  1. vendor url'ye adresine gider
         Driver.getDriver().get(ConfigReader.getProperty("pearlyUrl"));
