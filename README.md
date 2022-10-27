@@ -46,14 +46,77 @@
 ![image](https://user-images.githubusercontent.com/115616411/197862361-2d5d8a31-ed45-475e-8377-fb8e446acab4.png)
 ![github](https://user-images.githubusercontent.com/115616411/197865653-f26e8795-be5e-449f-a00a-1bf2caa3f940.png)
 
-##Tüm katkıda bulunanlara teşekkürler❤
+## Tüm katkıda bulunanlara teşekkürler❤
 </p>
 <hr/>
 <p align="left >
+  
+ 
+  <a href="/in/sefa-baygul-4704b524b/" id="ember741" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+      <div>
+      <img width="64" title="Sefa Baygul" src="https://media-exp1.licdn.com/dms/image/C4D03AQFziCR0JEb5PA/profile-displayphoto-shrink_200_200/0/1664106199903?e=1672272000&amp;v=beta&amp;t=mTQLngt61XBz_Zw2knHDans0NOuct3sLJWasdBVewb4" height="64" alt="Sefa Baygul" id="ember741" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+      </div>
+      <div class="t-16 t-black t-bold">
+          Sefa Baygül
+      </div>
+  </a>
+  
+ <a href="/in/esra-tepecik-9a59b718a/" id="ember217" class="ember-view block">
+      <div>
+        <img width="64" src="https://media-exp1.licdn.com/dms/image/C4E03AQGHtoqDgsBZsQ/profile-displayphoto-shrink_100_100/0/1622588876542?e=1672272000&amp;v=beta&amp;t=08J7Wl_4VLNDTBkZxoU7FuTiQPotyoTNaHwAXsw7628" loading="lazy" height="64" alt="Esra Tepecik adlı kullanıcının fotoğrafı" id="ember218" class="feed-identity-module__member-photo EntityPhoto-circle-5 lazy-image ember-view">
+     </div>
+      <div class="t-16 t-black t-bold">
+          Esra Tepecik
+      </div>
+    </a>
+    
+<a href="/in/büşra-bozdemir/" id="ember971" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view"> 
+     <div>
+       <img width="64" title="Büşra Bozdemir" src="https://media-exp1.licdn.com/dms/image/D4E03AQH808-V8UUn5A/profile-displayphoto-shrink_200_200/0/1661384796378?e=1672272000&amp;v=beta&amp;t=D22Yj4guUtD9gD2kAayjgynUHlzpux0whIhRJR6k5NE" height="64" alt="Büşra Bozdemir" id="ember971" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+     </div>
+       <div class="t-16 t-black t-bold">
+          Büşra Bozdemir
+      </div>
+</a>
+    
 
-
-<a href="https://github.com/E-tepecik" target="_blank" rel="noreferrer"> <img src="https://avatars.githubusercontent.com/u/113845829?s=48&v=4"" alt="github" width="80" height="40"/> </a>
-
+  <a href="in/cavidaneken/" id="ember32" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+   <div>
+  <img width="64" title="Cavidan Eken" src="https://media-exp1.licdn.com/dms/image/C4D03AQEAqPO2PEM7qw/profile-displayphoto-shrink_200_200/0/1626214780974?e=1672272000&amp;v=beta&amp;t=CaGgZS8Tz5OiPXp3IWez9teLyygnPatsHEBzzo794SA" height="64" alt="Cavidan Eken" id="ember32" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+  </div>
+      <div class="t-16 t-black t-bold">
+          Cavidan Eken
+      </div>
+    </a>
+<a href="/in/yusuf-erdem-8a5729236/"  id="ember486" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+   <div>
+  <img width="64" title="Yusuf Erdem" src="https://media-exp1.licdn.com/dms/image/C4D03AQFARCLyDzCPSw/profile-displayphoto-shrink_200_200/0/1663852441089?e=1672272000&amp;v=beta&amp;t=xdmrq5Z5NQLVsCd__2EZS3yTDF0Jgmo9d8oML1Rfu7U" height="64" alt="Yusuf Erdem" id="ember486" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+    </div>
+      <div class="t-16 t-black t-bold">
+          Yusuf Erdem
+      </div>
+    </a>
+    
+ <a href="/in/mehmet-akif-yüksel-391165206/" id="ember806" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+   <div>
+ <img width="64" title="mehmet akif yüksel" src="https://media-exp1.licdn.com/dms/image/C4D03AQGZwLqxrfuR6w/profile-displayphoto-shrink_200_200/0/1656356642026?e=1672272000&amp;v=beta&amp;t=gk4YMslPeQ3yl499u4Q6knbKWVdrJZ91u6TEH-irhRk" height="64" alt="mehmet akif yüksel" id="ember806" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+    </div>
+      <div class="t-16 t-black t-bold">
+          Mehmet Akif Yüksel
+      </div>
+    </a>
+    
+<a href="/in/muhammet-doğanci-013507246/"  id="ember1111" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+   <div>
+ <img width="64" title="Muhammet DOĞANCI" src="https://media-exp1.licdn.com/dms/image/D4D03AQEiPZns9lR91w/profile-displayphoto-shrink_200_200/0/1665256920516?e=1672272000&amp;v=beta&amp;t=zZL3TnBX3P75Ny-E5rUZHTLkvHo_a47z3N-NwnC-3BM" height="64" alt="Muhammet DOĞANCI" id="ember1111" class="pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view">
+    </div>
+      <div class="t-16 t-black t-bold">
+          Muhammet Doğancı
+      </div>
+  </a>
+  
+### Afra Kolot
+### Cüneyt Emre
 </p>
 <hr/>
 <p align="left >
