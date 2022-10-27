@@ -32,6 +32,7 @@ public class US002_TC0001 extends TestBaseRapor {
         //2. vendor signin butonuna tıklar
         //3. vendor gecerli bir username girer
         //4. vendor gecerli bir password girer
+        //5. vendor signIn butonuna basar
         ReusableMethods.prMrktlogIn();
         extentTest.info("sayfaya login olundu");
         WebElement myAccount = pearlyMarketPage.myAccountYazisi;

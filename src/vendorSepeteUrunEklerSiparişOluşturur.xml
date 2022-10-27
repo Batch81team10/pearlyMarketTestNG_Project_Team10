@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Sayfaya login olup urun ekleyip sipariş oluşturma">
+    <test name="E2E test">
+        <classes>
+            <class name="tests.US_003.US003_TC0002"/>
+            <class name="tests.US_003.US003_TC0005"/>
+        </classes>
+    </test>
+</suite>
